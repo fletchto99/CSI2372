@@ -45,7 +45,7 @@ void printArray(int array[], int length) {
     cout << "]";
 }
 
-int* append(int(*arr)[4], int arr2[3]) {
+int* append(int(*arr)[4], int (&arr2)[3]) {
 
     int *result = new int[7];
 
@@ -55,8 +55,8 @@ int* append(int(*arr)[4], int arr2[3]) {
         result[index++] = i;
     }
 
-    for(size_t i = 0; i < 3; i++) {
-        result[index++] = arr2[i];
+    for (auto i : arr2) {
+        result[index++] = i;
     }
 
     return result;

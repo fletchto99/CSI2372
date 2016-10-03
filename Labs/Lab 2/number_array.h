@@ -4,4 +4,4 @@ int** findAll(int, int[], int, int&);
 
 void printArray(int[], int);
 
-int* append(int(*)[4], int[3]);
+int* append(int(*)[4], int(&)[3]);
