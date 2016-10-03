@@ -12,4 +12,8 @@ add_executable(lecture4 "Lectures/Lecture 4/union.cpp")
 
 # Labs
 add_executable(lab1 "Labs/Lab 1/main.cpp"
-                    "Labs/Lab 1/verbose_binary.cpp")
+                    "Labs/Lab 1/verbose_binary.cpp" "Labs/Lab 1/verbose_binary.h")
+
+# Labs
+add_executable(lab2 "Labs/Lab 2/main.cpp"
+        "Labs/Lab 2/number_array.cpp" "Labs/Lab 2/number_array.h")
