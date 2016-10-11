@@ -16,3 +16,4 @@ add_executable(lab1 "Labs/Lab 1/main.cpp"
 add_executable(lab2 "Labs/Lab 2/main.cpp"
         "Labs/Lab 2/number_array.cpp" "Labs/Lab 2/number_array.h")
 add_executable(lab3 "Labs/Lab 3/main.cpp" "Labs/Lab 3/bikerides.h" "Labs/Lab 3/bikerides.cpp")
+add_executable(lab4 "Labs/Lab 4/main.cpp" "Labs/Lab 4/fruit_grower.cpp" "Labs/Lab 4/fruit_grower.h")
