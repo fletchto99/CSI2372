@@ -1,10 +1,8 @@
-/*
- * Main entry point
- */
- using namespace std;
 #include <iostream>
 
-int main(){
-cout<<"hello world" <<endl;
-return 0;
+using namespace std;
+
+int main() {
+    cout << "Hello world" << endl;
+    return 0;
 }
