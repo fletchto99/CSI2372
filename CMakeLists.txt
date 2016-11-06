@@ -21,4 +21,4 @@ add_executable(lab5 "Labs/Lab 5/text_entry.cpp" "Labs/Lab 5/main.cpp" "Labs/Lab 
 
 # Project
 
-add_executable(project "Project/main.cpp")
+add_executable(project "Project/main.cpp" Project/cool.cpp)
