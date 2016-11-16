@@ -120,6 +120,8 @@ class Ruby : public Card {
                 return 5;
             case 4:
                 return 6;
+            default:
+                return -1; //TODO: return illegal argument error
         }
     }
 };
@@ -135,6 +137,8 @@ class Amethyst : public Card {
                 return 4;
             case 4:
                 return 5;
+            default:
+                return -1; //TODO: return illegal argument error
         }
     }
 };
@@ -150,6 +154,8 @@ class Emerald : public Card {
                 return 3;
             case 4:
                 return -1;
+            default:
+                return -1; //TODO: return illegal argument error
         }
     }
 };
