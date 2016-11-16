@@ -21,4 +21,4 @@ add_executable(lab5 "Labs/Lab 5/text_entry.cpp" "Labs/Lab 5/main.cpp" "Labs/Lab 
 
 # Project
 
-add_executable(project "Project/main.cpp" Project/cool.cpp Project/DiscardPile.cpp Project/DiscardPile.h Project/Table.cpp Project/Table.h Project/Players.cpp Project/Players.h Project/Chain.h)
+add_executable(project Project/gemstones.cpp Project/gemstones.h Project/cardfactory.cpp Project/cardfactory.h Project/deck.cpp Project/deck.h Project/DiscardPile.cpp Project/DiscardPile.h Project/Table.cpp Project/Table.h Project/Players.cpp Project/Players.h Project/Chain.h)
