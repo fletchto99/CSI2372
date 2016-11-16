@@ -47,19 +47,52 @@ class Malachite : public Card {
 };
 
 class Turquoise : public Card {
-
+ 
 };
 
 class Ruby : public Card {
-
+    int getCardsPerCoin(int coins){
+        switch(coins){
+            case 1:
+                return 2;
+            case 2:
+                return 4;
+            case 3:
+                return 5;
+            case 4:
+                return 6;
+        }
+    }
 };
 
 class Amethyst : public Card {
-
+    int getCardsPerCoin(int coins){
+        switch(coins){
+            case 1:
+                return 2;
+            case 2:
+                return 3;
+            case 3:
+                return 4;
+            case 4:
+                return 5;
+        }
+    }
 };
 
 class Emerald : public Card {
-
+    int getCardsPerCoin(int coins){
+        switch(coins){
+            case 1:
+                return -1;
+            case 2:
+                return 2;
+            case 3:
+                return 3;
+            case 4:
+                return -1;
+        }
+    }
 };
 
 
