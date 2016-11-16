@@ -12,7 +12,7 @@ add_executable(lecture4 "Lectures/Lecture 4/union.cpp")
 
 # Labs
 add_executable(lab1 "Labs/Lab 1/main.cpp"
-                    "Labs/Lab 1/verbose_binary.cpp" "Labs/Lab 1/verbose_binary.h" Project/main.cpp Project/TradeArea.cpp Project/TradeArea.h Project/Hand.cpp Project/Hand.h)
+                    "Labs/Lab 1/verbose_binary.cpp" "Labs/Lab 1/verbose_binary.h" Project/main.cpp Project/trade_area.cpp Project/trade_area.h Project/hand.cpp Project/hand.h)
 add_executable(lab2 "Labs/Lab 2/main.cpp"
         "Labs/Lab 2/number_array.cpp" "Labs/Lab 2/number_array.h")
 add_executable(lab3 "Labs/Lab 3/main.cpp" "Labs/Lab 3/bikerides.h" "Labs/Lab 3/bikerides.cpp")
@@ -21,4 +21,4 @@ add_executable(lab5 "Labs/Lab 5/text_entry.cpp" "Labs/Lab 5/main.cpp" "Labs/Lab 
 
 # Project
 
-add_executable(project Project/gemstones.cpp Project/gemstones.h Project/cardfactory.cpp Project/cardfactory.h Project/deck.cpp Project/deck.h Project/DiscardPile.cpp Project/DiscardPile.h Project/Table.cpp Project/Table.h Project/Players.cpp Project/Players.h Project/Chain.h)
+add_executable(project Project/gemstones.cpp Project/gemstones.h Project/cardfactory.cpp Project/cardfactory.h Project/deck.cpp Project/deck.h Project/discard_pile.cpp Project/discard_pile.h Project/table.cpp Project/table.h Project/players.cpp Project/players.h Project/chain.h)
