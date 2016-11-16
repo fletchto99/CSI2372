@@ -36,18 +36,77 @@ class Quartz : public Card {
 
 class Hematite : public Card {
 
+    int getCardsPerCoin(int coins) {
+        switch(coins) {
+            case 1:
+                return 3;
+            case 2:
+                return 6;
+            case 3:
+                return 8;
+            case 4:
+                return 9;
+            default:
+                return -1; //TODO: return illegal argument error
+        }
+    }
+
 };
 
 class Obsidian : public Card {
+
+    int getCardsPerCoin(int coins) {
+        switch(coins) {
+            case 1:
+                return 3;
+            case 2:
+                return 5;
+            case 3:
+                return 7;
+            case 4:
+                return 8;
+            default:
+                return -1; //TODO: return illegal argument error
+        }
+    }
 
 };
 
 class Malachite : public Card {
 
+    int getCardsPerCoin(int coins) {
+        switch(coins) {
+            case 1:
+                return 3;
+            case 2:
+                return 5;
+            case 3:
+                return 6;
+            case 4:
+                return 7;
+            default:
+                return -1; //TODO: return illegal argument error
+        }
+    }
+
 };
 
 class Turquoise : public Card {
- 
+
+    int getCardsPerCoin(int coins) {
+        switch(coins) {
+            case 1:
+                return 2;
+            case 2:
+                return 4;
+            case 3:
+                return 6;
+            case 4:
+                return 7;
+            default:
+                return -1; //TODO: return illegal argument error
+        }
+    }
 };
 
 class Ruby : public Card {
