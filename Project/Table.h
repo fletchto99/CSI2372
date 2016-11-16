@@ -6,7 +6,7 @@
 #define CSI2372_TABLE_H
 
 
-class Table {
+class table {
 
 };
 

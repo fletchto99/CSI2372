@@ -6,7 +6,7 @@
 #define CSI2372_PLAYERS_H
 
 
-class Players {
+class players {
 
 };
 

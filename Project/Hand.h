@@ -6,7 +6,7 @@
 #define CSI2372_HAND_H
 
 
-class Hand {
+class hand {
 
 };
 
