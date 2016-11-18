@@ -36,6 +36,10 @@ class Quartz : public Card {
         return "Quartz";
     }
 
+    void print(std::ostream& out) {
+        //TODO: Output first character of card to the OStream
+    }
+
 };
 
 class Hematite : public Card {
@@ -57,6 +61,10 @@ class Hematite : public Card {
 
     string getName() {
         return "Hematite";
+    }
+
+    void print(std::ostream& out) {
+        //TODO: Output first character of card to the OStream
     }
 
 };
@@ -82,6 +90,10 @@ class Obsidian : public Card {
         return "Obsidian";
     }
 
+    void print(std::ostream& out) {
+        //TODO: Output first character of card to the OStream
+    }
+
 };
 
 class Malachite : public Card {
@@ -103,6 +115,10 @@ class Malachite : public Card {
 
     string getName() {
         return "Malachite";
+    }
+
+    void print(std::ostream& out) {
+        //TODO: Output first character of card to the OStream
     }
 
 };
@@ -127,6 +143,10 @@ class Turquoise : public Card {
     string getName() {
         return "Turquoise";
     }
+
+    void print(std::ostream& out) {
+        //TODO: Output first character of card to the OStream
+    }
 };
 
 class Ruby : public Card {
@@ -144,8 +164,13 @@ class Ruby : public Card {
                 return -1; //TODO: return illegal argument error
         }
     }
+
     string getName(){
         return "Ruby";
+    }
+
+    void print(std::ostream& out) {
+        //TODO: Output first character of card to the OStream
     }
 };
 
@@ -168,6 +193,10 @@ class Amethyst : public Card {
     string getName(){
         return "Amethyst";
     }
+
+    void print(std::ostream& out) {
+        //TODO: Output first character of card to the OStream
+    }
 };
 
 class Emerald : public Card {
@@ -188,6 +217,10 @@ class Emerald : public Card {
 
     string getName(){
         return "Emerald";
+    }
+
+    void print(std::ostream& out) {
+        //TODO: Output first character of card to the OStream
     }
 };
 
