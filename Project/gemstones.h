@@ -32,6 +32,10 @@ class Quartz : public Card {
         }
     }
 
+    string getName() {
+        return "Quartz";
+    }
+
 };
 
 class Hematite : public Card {
@@ -49,6 +53,10 @@ class Hematite : public Card {
             default:
                 return -1; //TODO: return illegal argument error
         }
+    }
+
+    string getName() {
+        return "Hematite";
     }
 
 };
@@ -70,6 +78,10 @@ class Obsidian : public Card {
         }
     }
 
+    string getName() {
+        return "Obsidian";
+    }
+
 };
 
 class Malachite : public Card {
@@ -89,6 +101,10 @@ class Malachite : public Card {
         }
     }
 
+    string getName() {
+        return "Malachite";
+    }
+
 };
 
 class Turquoise : public Card {
@@ -106,6 +122,10 @@ class Turquoise : public Card {
             default:
                 return -1; //TODO: return illegal argument error
         }
+    }
+
+    string getName() {
+        return "Turquoise";
     }
 };
 
