@@ -124,6 +124,9 @@ class Ruby : public Card {
                 return -1; //TODO: return illegal argument error
         }
     }
+    string getName(){
+        return "Ruby";
+    }
 };
 
 class Amethyst : public Card {
@@ -141,6 +144,10 @@ class Amethyst : public Card {
                 return -1; //TODO: return illegal argument error
         }
     }
+
+    string getName(){
+        return "Amethyst";
+    }
 };
 
 class Emerald : public Card {
@@ -157,6 +164,10 @@ class Emerald : public Card {
             default:
                 return -1; //TODO: return illegal argument error
         }
+    }
+
+    string getName(){
+        return "Emerald";
     }
 };
 
