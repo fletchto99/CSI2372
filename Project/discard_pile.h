@@ -10,7 +10,7 @@ using namespace std;
 
 class DiscardPile {
 private:
-    std::vector<Card> d_cards;
+    std::vector<Card*> d_cards;
 public:
 
     DiscardPile( std::istream&, CardFactory* );
