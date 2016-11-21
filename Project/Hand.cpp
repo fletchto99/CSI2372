@@ -1,7 +1,5 @@
 #include "hand.h"
-#include <iostream>
-#include <queue>
-#include <vector>
+
 using namespace std;
 
 /**
@@ -21,7 +19,7 @@ Card *Hand::play() {
 
     if(!d_hand.empty()) {
         cardPtr = d_hand.front();
-        d_hand.pop();
+        d_hand.pop_back();
     }
 
     return cardPtr;
@@ -41,14 +39,12 @@ Card *Hand::top() {
  * @return
  */
 Card *Hand::operator[](int index) {
-
-    if(!d_hand.empty()){
-        for(int i=0; i<index; i++){
-
-        }
+    Card* cardPtr = nullptr;
+    if(!d_hand.empty()) {
+        cardPtr = d_hand.at(index);
+        d_hand.erase(d_hand.begin() + index);
     }
-
-    return nullptr;
+    return cardPtr;
 }
 
 /*

@@ -8,7 +8,7 @@
 
 class Hand {
 private:
-    std::queue<Card*, std::vector> d_hand;
+    std::vector<Card*> d_hand;
 public:
     Hand& operator+=(Card*);
     Card* play();
