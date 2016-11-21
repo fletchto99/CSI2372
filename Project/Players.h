@@ -2,13 +2,19 @@
 #define CSI2372_PLAYERS_H
 
 #include <string>
+#include <queue>
 #include "chain.h"
 
 class Player {
-
+private:
+    string d_name;
+    int d_coins;
+    int d_numChains;
+    std::queue<Card, std::list> chains;
+public:
     Player( std::istream&, CardFactory* );
-
     Player( std::string& );
+
     std::string getName();
     int getNumCoins();
     Player& operator+=(int coins);
