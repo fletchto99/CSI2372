@@ -12,7 +12,7 @@ private:
     int d_numChains;
     std::queue<Card, std::list> chains;
 public:
-    Player( std::istream&, CardFactory* );
+    Player( std::istream&, std::string&);
     Player( std::string& );
 
     std::string getName();
@@ -20,7 +20,7 @@ public:
     Player& operator+=(int coins);
     int getMaxNumChains();
     int getNumChains();
-    chain& operator[](int i);
+    Chain& operator[](int i);
     void buyThirdChain();
     void printHand(std::ostream&, bool);
 

@@ -1,4 +1,8 @@
 #include "players.h"
+#include "Chain.h"
+#include <exception>
+#include <iostream>
+using namespace std;
 
 Player::Player(std::istream &, CardFactory *) {
 
@@ -13,11 +17,11 @@ std::string Player::getName() {
 }
 
 int Player::getNumCoins() {
-    return 0;
+    return d_coins;
 }
 
 int Player::getMaxNumChains() {
-    return 0;
+    return 2;
 }
 
 Player &Player::operator+=(int coins) {
@@ -25,17 +29,37 @@ Player &Player::operator+=(int coins) {
 }
 
 int Player::getNumChains() {
-    return d_numChains;
+    if(d_numChains != 0) {
+        return d_numChains;
+    }
 }
 
-chain &Player::operator[](int i) {
-    return ;
+Chain& Player::operator[](int i) {
+
 }
 
 void Player::buyThirdChain() {
-chains.
+    if(d_coins < 2){
+        throw NotEnoughCoins("You do not have enough coins");
+    } else {
+        d_coins = d_coins - 2;
+      // Chain chain (nullptr, nullptr);
+    }
 }
 
-void Player::printHand(std::ostream &, bool) {
+void Player::printHand(std::ostream &, bool everybody) {
 
+    if(everybody == true){
+        cout << "everybodies hand" << endl;
+    } else {
+        cout << "players hand" << endl;
+    }
 }
+
+class NotEnoughCoins{
+private:
+    std::string d_strError;
+public:
+    NotEnoughCoins(std::string _strError) : d_strError(_strError){}
+    std::string getError(){return d_strError;}
+};

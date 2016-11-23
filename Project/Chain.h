@@ -10,13 +10,13 @@
  * d_cards vector
  */
 template <class T>
-class chain {
+class Chain {
 private:
     std::vector<T> d_cards;
 public:
-    chain<T>& operator+=(Card*);
+    Chain<T>& operator+=(Card*);
     int sell();
-    chain (std::istream&, CardFactory*);
+    Chain (std::istream&, CardFactory*);
 };
 
 #endif
