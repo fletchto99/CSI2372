@@ -4,17 +4,20 @@
 #include <string>
 #include <queue>
 #include "chain.h"
+#include "hand.h"
 
 class Player {
 private:
     string d_name;
     int d_coins;
     int d_numChains;
-    std::queue<Card, std::list> chains;
+    std::vector<Chain> d_chains;
+    Hand d_hand;
 public:
     Player( std::istream&, std::string&);
     Player( std::string& );
 
+    Hand* getHand();
     std::string getName();
     int getNumCoins();
     Player& operator+=(int coins);

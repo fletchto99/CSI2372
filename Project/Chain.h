@@ -16,7 +16,7 @@ private:
 public:
     Chain<T>& operator+=(Card*);
     int sell();
-    Chain (std::istream&, CardFactory*);
+    Chain();
 };
 
 #endif

@@ -47,7 +47,7 @@ Card *Hand::operator[](int index) {
     return cardPtr;
 }
 
-/*
-Hand::Hand(std::istream &, CardFactory *) {
+
+Hand::Hand(std::istream & , CardFactory *) {
 
 }

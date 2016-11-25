@@ -1,12 +1,7 @@
 #include "players.h"
 #include "Chain.h"
-#include <exception>
 #include <iostream>
 using namespace std;
-
-Player::Player(std::istream &, CardFactory *) {
-
-}
 
 Player::Player(std::string &name) {
  d_name = name;
@@ -21,6 +16,7 @@ int Player::getNumCoins() {
 }
 
 int Player::getMaxNumChains() {
+   if(d_numChains)
     return 2;
 }
 
@@ -29,31 +25,46 @@ Player &Player::operator+=(int coins) {
 }
 
 int Player::getNumChains() {
-    if(d_numChains != 0) {
-        return d_numChains;
+    if(d_chains.empty()) {
+        cout << "Your chains are empty" << endl;
+        return 0;
     }
+    return d_numChains;
 }
 
 Chain& Player::operator[](int i) {
-
+    return d_chains.at(i);
 }
 
 void Player::buyThirdChain() {
-    if(d_coins < 2){
-        throw NotEnoughCoins("You do not have enough coins");
+   if(d_numChains != 3) {
+       if (d_coins < 2) {
+           throw NotEnoughCoins("You do not have enough coins");
+       } else {
+           d_coins = d_coins - 2;
+           d_numChains++;
+           // Chain chain (nullptr, nullptr);
+       }
+   } else {
+       cout << "You already have 3 chains, you are only allow to have 3 chains." << endl;
+   }
+}
+
+void Player::printHand(std::ostream &, bool hand) {
+
+    if(hand == true){
+        cout << "hand" << endl;
     } else {
-        d_coins = d_coins - 2;
-      // Chain chain (nullptr, nullptr);
+        cout << "top card" << endl;
     }
 }
 
-void Player::printHand(std::ostream &, bool everybody) {
+Player::Player(std::istream &, std::string &) {
+    d_hand = new Hand(std::istream& );
+}
 
-    if(everybody == true){
-        cout << "everybodies hand" << endl;
-    } else {
-        cout << "players hand" << endl;
-    }
+Hand *Player::getHand() {
+    return &d_hand;
 }
 
 class NotEnoughCoins{
