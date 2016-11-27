@@ -12,6 +12,7 @@ using namespace std;
 
 class Deck : public vector {
 
+public:
     /**
      * Reconstructs the deck from file.
      */

@@ -3,8 +3,6 @@
 CardFactory *CardFactory::getFactory() {
     if (d_factory == nullptr) {
         d_factory = new CardFactory();
-        
-        //TODO: Create a cardfactory
     }
     return d_factory;
 }

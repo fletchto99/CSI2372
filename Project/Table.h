@@ -3,10 +3,13 @@
 
 #include <string>
 
+#include "Players.h"
+
 class Table {
-
+private:
+    std::vector<Player*> players;
+public:
     Table(std::istream& file);
-
     bool win( std::string& );
     void print(std::ostream&);
 

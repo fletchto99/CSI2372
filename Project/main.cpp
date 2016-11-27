@@ -6,14 +6,6 @@
 
 using namespace std;
 
-string &getName(int player) {
-    string name;
-    while (name == "") {
-        cout << "What is player " << player << "'s name?" << endl;
-        cin >> name;
-    }
-    return name;
-}
 
 int main() {
 
@@ -22,24 +14,9 @@ int main() {
     string file = "";
     cin >> file;
 
-    Deck deck = new Deck(nullptr, CardFactory::getFactory());
+    Deck deck = CardFactory::getFactory()->getDeck();
 
-
-    std::vector<Player*> players;
-    if (file != "") {
-        ifstream (cin);
-    } else {
-        players.push_back(new Player(getName(1)));
-        players.push_back(new Player(getName(2)));
-    }
-
-
-    for(auto const &player: players) {
-        for (int i = 0; i < 5; i++) {
-            //TODO: Fill hand with 5 cards
-            player->getHand() += deck.draw();
-        }
-    }
+    ifstream in;
 
     while(!deck.empty()) {
         string choice = "";
