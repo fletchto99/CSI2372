@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 
 #include "cardfactory.h"
 #include "players.h"
@@ -19,13 +20,14 @@ int main() {
     cout << "Where would you like to load the game from? Press enter to start a new game.";
 
     string file = "";
+    cin >> file;
 
     Deck deck = new Deck(nullptr, CardFactory::getFactory());
 
 
     std::vector<Player*> players;
     if (file != "") {
-        //TODO: Load players from file istream
+        ifstream (cin);
     } else {
         players.push_back(new Player(getName(1)));
         players.push_back(new Player(getName(2)));
@@ -35,7 +37,7 @@ int main() {
     for(auto const &player: players) {
         for (int i = 0; i < 5; i++) {
             //TODO: Fill hand with 5 cards
-//            player->getHand() += deck.draw();
+            player->getHand() += deck.draw();
         }
     }
 
