@@ -15,6 +15,7 @@ public:
     Card* top();
     Card* operator[](int);
     Hand(std::istream&, CardFactory*);
+    void print(std::ostream& os);
 };
 
 

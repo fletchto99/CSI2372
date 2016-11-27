@@ -1,10 +1,15 @@
 #include "players.h"
 #include "Chain.h"
+#include "cardfactory.h"
 #include <iostream>
 using namespace std;
 
 Player::Player(std::string &name) {
  d_name = name;
+}
+
+Player::Player(std::istream & is , std::string & _name) {
+    //d_hand = new Hand(is, CardFactory::CardFactory _factory);
 }
 
 std::string Player::getName() {
@@ -50,17 +55,12 @@ void Player::buyThirdChain() {
    }
 }
 
-void Player::printHand(std::ostream &, bool hand) {
-
-    if(hand == true){
-        cout << "hand" << endl;
+void Player::printHand(std::ostream & os, bool hand) {
+    if(hand){
+         d_hand.print(os);
     } else {
-        cout << "top card" << endl;
+        os << d_hand.top() << endl;
     }
-}
-
-Player::Player(std::istream &, std::string &) {
-    d_hand = new Hand(std::istream& );
 }
 
 Hand *Player::getHand() {

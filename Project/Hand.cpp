@@ -1,4 +1,5 @@
 #include "hand.h"
+#include <iostream>
 
 using namespace std;
 
@@ -50,4 +51,10 @@ Card *Hand::operator[](int index) {
 
 Hand::Hand(std::istream & , CardFactory *) {
 
+}
+
+void Hand::print(std::ostream &os) {
+    for(auto cards: d_hand){
+        cout << cards << " " << endl;
+    }
 }

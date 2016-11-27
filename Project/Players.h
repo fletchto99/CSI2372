@@ -12,7 +12,8 @@ private:
     int d_coins;
     int d_numChains;
     std::vector<Chain> d_chains;
-    Hand d_hand;
+    Hand d_hand = NULL;
+
 public:
     Player( std::istream&, std::string&);
     Player( std::string& );
