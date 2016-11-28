@@ -14,7 +14,7 @@ private:
 public:
     TradeArea& operator+=(Card*);
     bool legal(Card*);
-    Card* trade(string);
+    Card* trade(const Card &);
     int numCards();
     TradeArea(std::istream&, CardFactory*);
 };

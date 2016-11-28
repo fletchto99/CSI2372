@@ -8,8 +8,11 @@ bool TradeArea::legal(Card *card) {
     return card == d_list.front();
 }
 
-Card *TradeArea::trade(string) {
+Card *TradeArea::trade(const Card &_card) {
+    Card tmp;
+    std::list<Card>::iterator iter = ;
 
+    d_list.remove(_card);
     return nullptr;
 }
 
