@@ -13,7 +13,7 @@ private:
     std::vector<Player*> players;
     DiscardPile* discardPile;
     TradeArea* tradeArea;
-    Deck deck;
+    Deck deck = NULL;
 public:
     Table(std::istream& file);
     bool win( std::string& );
