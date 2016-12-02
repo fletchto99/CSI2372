@@ -9,11 +9,14 @@ bool TradeArea::legal(Card *card) {
 }
 
 Card *TradeArea::trade(const Card &_card) {
-    Card tmp;
-    std::list<Card>::iterator iter = ;
-
-    d_list.remove(_card);
-    return nullptr;
+    Card *tmp = nullptr;
+    for(auto a: d_list){
+        if(a == _card){
+            *tmp = a;
+            d_list.remove(a);
+        }
+    }
+    return tmp;
 }
 
 int TradeArea::numCards() {
