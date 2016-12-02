@@ -10,10 +10,11 @@ private:
     Deck <Card> d_deck = NULL;
     static CardFactory* d_factory = nullptr;
 
-    CardFactory();
+    CardFactory(std::istream &input);
 
 public:
     static CardFactory* getFactory();
+    static CardFactory* getFactory(std::istream &input);
     Deck getDeck();
     ~CardFactory();
 };

@@ -13,7 +13,7 @@ string &getName(int player) {
 }
 
 Table::Table(std::istream &file) {
-    deck = CardFactory::getFactory()->getDeck();
+    deck = CardFactory::getFactory(file)->getDeck();
     discardPile = new DiscardPile(file, CardFactory::getFactory());
     tradeArea = new TradeArea(file, CardFactory::getFactory());
     players.push_back(new Player(getName(1)));
@@ -63,6 +63,9 @@ void Table::play() {
             string file = "";
             cin >> file;
             out.open (file);
+            //TODO: for each card in the deck print it to the file
+            //TODO: print the discard pile to the file
+            //TODO: for each player: save their hand, save their chains, save their tradearea
             out.close();
             return;
         }
@@ -81,9 +84,7 @@ void Table::play() {
                     player->buyThirdChain();
                 }
             }
-
-            //TODO: Draw top card from the deck
-//            player->getHand() += deck.draw();
+            player->getHand()->operator+=(deck.draw());
 
             if (tradeArea->numCards() > 0) {
                 //TODO: Add gemstone cards from the TradeArea to chains or discard them
@@ -94,14 +95,28 @@ void Table::play() {
 //            If chain is ended, cards for chain are removed and player receives coin(s).
 //            If player decides to Play the now topmost card from Hand.
 //            If chain is ended, cards for chain are removed and player receives coin(s).
-//            If player decides to Show the player's full hand and player selects an arbitrary card
 
-//            Discard the arbitrary card from the player's hand and place it on the discard pile.
-//            Draw three cards from the deck and place cards in the trade area
+            choice = "";
+            while (choice != "Y" || choice != "N") {
+                cout << "Would you like to look at your hand and discard a card? [Y/N]";
+                cin >> choice;
+            }
 
-//            while top card of discard pile matches an existing card in the trade area
-//              draw the top-most card from the discard pile and place it in the trade area
-//            end
+            if (choice == "Y") {
+                int arbitraryCard = -1;
+                player->getHand()->print(out);
+                cout << "Which card would you like to remove 1-5?";
+                cin >> arbitraryCard;
+                if(arbitraryCard > -1) {
+                    discardPile->operator+=(player->getHand()->operator[](1));
+                }
+            }
+            tradeArea->operator+=(deck.draw());
+
+            while (tradeArea->legal(discardPile->top())) {
+                tradeArea->operator+=(discardPile->pickUp());
+            }
+
 //            for all cards in the trade area
 //              if player wants to chain the card
 //                  chain the card
@@ -110,7 +125,8 @@ void Table::play() {
 //              else
 //                  card remains in trade area for the next player.
 //            end
-//            Draw two cards from Deck and add the cards to the player's hand (at the back).
+
+            player->getHand()->operator+=(deck.draw());
         }
 
 
