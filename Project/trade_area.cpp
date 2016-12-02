@@ -17,7 +17,7 @@ Card *TradeArea::trade(const Card &_card) {
 }
 
 int TradeArea::numCards() {
-    return 0;
+    return (sizeof(d_list))/(sizeof(Card));
 }
 
 TradeArea::TradeArea(std::istream &, CardFactory *) {

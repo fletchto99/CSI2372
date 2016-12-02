@@ -12,212 +12,52 @@ class Card {
 };
 
 class Quartz : public Card {
-
-    int getCardsPerCoin(int coins) {
-        switch(coins) {
-            case 1:
-                return 4;
-            case 2:
-                return 6;
-            case 3:
-                return 8;
-            case 4:
-                return 10;
-            default:
-                return -1; //TODO: return illegal argument error
-        }
-    }
-
-    string getName() {
-        return "Quartz";
-    }
-
-    void print(std::ostream& out) {
-        //TODO: Output first character of card to the OStream
-    }
-
+    int getCardsPerCoin(int coins);
+    string getName();
+    void print(std::ostream& out);
 };
 
 class Hematite : public Card {
-
-    int getCardsPerCoin(int coins) {
-        switch(coins) {
-            case 1:
-                return 3;
-            case 2:
-                return 6;
-            case 3:
-                return 8;
-            case 4:
-                return 9;
-            default:
-                return -1; //TODO: return illegal argument error
-        }
-    }
-
-    string getName() {
-        return "Hematite";
-    }
-
-    void print(std::ostream& out) {
-        //TODO: Output first character of card to the OStream
-    }
-
+    int getCardsPerCoin(int coins);
+    string getName();
+    void print(std::ostream& out);
 };
 
 class Obsidian : public Card {
-
-    int getCardsPerCoin(int coins) {
-        switch(coins) {
-            case 1:
-                return 3;
-            case 2:
-                return 5;
-            case 3:
-                return 7;
-            case 4:
-                return 8;
-            default:
-                return -1; //TODO: return illegal argument error
-        }
-    }
-
-    string getName() {
-        return "Obsidian";
-    }
-
-    void print(std::ostream& out) {
-        //TODO: Output first character of card to the OStream
-    }
-
+    int getCardsPerCoin(int coins);
+    string getName();
+    void print(std::ostream& out);
 };
 
 class Malachite : public Card {
-
-    int getCardsPerCoin(int coins) {
-        switch(coins) {
-            case 1:
-                return 3;
-            case 2:
-                return 5;
-            case 3:
-                return 6;
-            case 4:
-                return 7;
-            default:
-                return -1; //TODO: return illegal argument error
-        }
-    }
-
-    string getName() {
-        return "Malachite";
-    }
-
-    void print(std::ostream& out) {
-        //TODO: Output first character of card to the OStream
-    }
+    int getCardsPerCoin(int coins);
+    string getName();
+    void print(std::ostream& out);
 
 };
 
 class Turquoise : public Card {
-
-    int getCardsPerCoin(int coins) {
-        switch(coins) {
-            case 1:
-                return 2;
-            case 2:
-                return 4;
-            case 3:
-                return 6;
-            case 4:
-                return 7;
-            default:
-                return -1; //TODO: return illegal argument error
-        }
-    }
-
-    string getName() {
-        return "Turquoise";
-    }
-
-    void print(std::ostream& out) {
-        //TODO: Output first character of card to the OStream
-    }
+    int getCardsPerCoin(int coins);
+    string getName();
+    void print(std::ostream& out);
 };
 
 class Ruby : public Card {
-    int getCardsPerCoin(int coins){
-        switch(coins){
-            case 1:
-                return 2;
-            case 2:
-                return 4;
-            case 3:
-                return 5;
-            case 4:
-                return 6;
-            default:
-                return -1; //TODO: return illegal argument error
-        }
-    }
-
-    string getName(){
-        return "Ruby";
-    }
-
-    void print(std::ostream& out) {
-        //TODO: Output first character of card to the OStream
-    }
+    int getCardsPerCoin(int coins);
+    string getName();
+    void print(std::ostream& out);
 };
 
 class Amethyst : public Card {
-    int getCardsPerCoin(int coins){
-        switch(coins){
-            case 1:
-                return 2;
-            case 2:
-                return 3;
-            case 3:
-                return 4;
-            case 4:
-                return 5;
-            default:
-                return -1; //TODO: return illegal argument error
-        }
-    }
-
-    string getName(){
-        return "Amethyst";
-    }
-
-    void print(std::ostream& out) {
-        //TODO: Output first character of card to the OStream
-    }
+    int getCardsPerCoin(int coins);
+    string getName();
+    void print(std::ostream& out);
 };
 
 class Emerald : public Card {
-    int getCardsPerCoin(int coins){
-        switch(coins){
-            case 1:
-                return -1;
-            case 2:
-                return 2;
-            case 3:
-                return 3;
-            case 4:
-                return -1;
-            default:
-                return -1; //TODO: return illegal argument error
-        }
-    }
-
-    string getName(){
-        return "Emerald";
-    }
-
-    void print(std::ostream& out) {
-        //TODO: Output first character of card to the OStream
-    }
+    int getCardsPerCoin(int coins);
+    string getName();
+    void print(std::ostream& out);
 };
 
 
