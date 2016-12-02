@@ -51,7 +51,7 @@ void Player::buyThirdChain() {
            // Chain chain (nullptr, nullptr);
        }
    } else {
-       cout << "You already have 3 chains, you are only allow to have 3 chains." << endl;
+       cout << "You already have 3 chains, and you are only allow to have a maximum of 3 chains." << endl;
    }
 }
 

@@ -21,7 +21,7 @@ string Quartz::getName() {
 }
 
 void Quartz::print(std::ostream &out) {
-        //TODO: Output first character of card to the OStream
+    out << " Q " << endl;
 }
 
 
@@ -45,7 +45,7 @@ string Hematite::getName() {
 }
 
 void Hematite::print(std::ostream &out) {
-    //TODO: Output first character of card to the OStream
+    out << " H " << endl;
 }
 
 int Obsidian::getCardsPerCoin(int coins) {
@@ -68,7 +68,7 @@ string Obsidian::getName() {
 }
 
 void Obsidian::print(std::ostream &out) {
-    //TODO: Output first character of card to the OStream
+    out << " O " << endl;
 }
 
 int Malachite::getCardsPerCoin(int coins) {
@@ -91,7 +91,7 @@ string Malachite::getName() {
 }
 
 void Malachite::print(std::ostream &out) {
-    //TODO: Output first character of card to the OStream
+   out << " M " << endl;
 }
 
 int Turquoise::getCardsPerCoin(int coins) {
@@ -115,7 +115,7 @@ string Turquoise::getName() {
 }
 
 void Turquoise::print(std::ostream &out) {
-    //TODO: Output first character of card to the OStream
+    out << " T " << endl;
 }
 
 int Ruby::getCardsPerCoin(int coins) {
@@ -138,7 +138,7 @@ string Ruby::getName() {
 }
 
 void Ruby::print(std::ostream &out) {
-    //TODO: Output first character of card to the OStream
+    out << " R " << endl;
 }
 
 int Amethyst::getCardsPerCoin(int coins) {
@@ -161,7 +161,7 @@ string Amethyst::getName() {
 }
 
 void Amethyst::print(std::ostream &out) {
-    //TODO: Output first character of card to the OStream
+    out << " A " << endl;
 }
 
 int Emerald::getCardsPerCoin(int coins) {
@@ -184,6 +184,6 @@ string Emerald::getName() {
 }
 
 void Emerald::print(std::ostream &out) {
-    //TODO: Output first character of card to the OStream
+    out << " E " << endl;
 }
 

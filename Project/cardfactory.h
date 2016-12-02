@@ -7,7 +7,7 @@
 
 class CardFactory {
 private:
-    Deck<Card> d_deck = NULL;
+    Deck <Card> d_deck = NULL;
     static CardFactory* d_factory = nullptr;
 
     CardFactory();
