@@ -24,6 +24,7 @@ void Quartz::print(std::ostream &out) {
         //TODO: Output first character of card to the OStream
 }
 
+
 int Hematite::getCardsPerCoin(int coins) {
     switch (coins) {
         case 1:
