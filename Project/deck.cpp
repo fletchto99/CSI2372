@@ -6,6 +6,7 @@ Card *Deck::draw() {
     return res;
 }
 
-Deck::Deck(std::istream &, CardFactory *) {
-
+Deck::Deck(std::istream &input, CardFactory *) {
+    ifsLoadPlayer>>strName>>nSomeInteger>>nSomeInteger2; //>>endl;
+    cout<<strName<<" "<<nSomeInteger<<" "<<nSomeInteger2<<endl;;
 }

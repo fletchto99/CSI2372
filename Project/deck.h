@@ -1,7 +1,3 @@
-#ifndef CSI2372_DECK_H
-#define CSI2372_DECK_H
-
-
 #include "deck.h"
 #include "gemstones.h"
 #include "cardfactory.h"
@@ -26,5 +22,3 @@ public:
     Card* draw();
 
 };
-
-#endif

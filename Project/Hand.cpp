@@ -1,5 +1,4 @@
 #include "hand.h"
-#include <iostream>
 
 using namespace std;
 
@@ -49,8 +48,10 @@ Card *Hand::operator[](int index) {
 }
 
 
-Hand::Hand(std::istream & , CardFactory *) {
-
+Hand::Hand(std::istream &input , CardFactory *) {
+//    d_hand.push_back()
+//    input>>strName>>nSomeInteger>>nSomeInteger2;
+//    cout<<strName<<" "<<nSomeInteger<<" "<<nSomeInteger2<<endl;;
 }
 
 void Hand::print(std::ostream &os) {

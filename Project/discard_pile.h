@@ -1,7 +1,7 @@
 #ifndef CSI2372_DISCARDPILE_H
 #define CSI2372_DISCARDPILE_H
 
-#include <vector>;
+#include <vector>
 
 #include "gemstones.h"
 #include "cardfactory.h"

@@ -9,11 +9,20 @@
 using namespace std;
 
 
+class ChainBase {
+public:
+    virtual Chain& operator+=(Card*) = 0;
+    virtual int sell() = 0;
+    friend ostream& operator << (ostream& out, ChainBase& const chainBase){
+        return out;
+    }
+};
+
 /**
  * Initialized the template Chain
  * d_cards vector
  */
-template <class T> class Chain {
+template <class T> class Chain : ChainBase {
 private:
     std::vector<T> d_cards;
 public:
@@ -30,10 +39,9 @@ Chain &Chain::operator+=(T * type) {
    }
 }
 template <typename T>
-int Chain::sell() {
+int Chain::sell() override {
     int numOfCards = d_cards.size();
     int numOfCoins = 0;
-
     return numOfCoins;
 }
 template <typename T>
