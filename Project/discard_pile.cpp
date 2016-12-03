@@ -14,8 +14,12 @@ Card *DiscardPile::top() {
     return d_cards.at(0);
 }
 
-void DiscardPile::print(std::ostream &) {
-
+void DiscardPile::print(std::ostream & out) {
+    out << "Discard Pile: [" << endl;
+    for(auto card: d_cards){
+        out << card << ", ";
+    }
+    out << " ]" << endl;
 }
 
 DiscardPile::DiscardPile(std::istream &, CardFactory *) {
