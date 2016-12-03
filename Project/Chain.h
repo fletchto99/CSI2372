@@ -13,7 +13,7 @@ class ChainBase {
 public:
     virtual Chain& operator+=(Card*) = 0;
     virtual int sell() = 0;
-    friend ostream& operator << (ostream& out, ChainBase& const chainBase){
+    friend ostream& operator << (ostream& out, ChainBase& const chainBase) {
         return out;
     }
 };
@@ -24,7 +24,7 @@ public:
  */
 template <class T> class Chain : ChainBase {
 private:
-    std::vector<T> d_cards;
+    std::vector<T*> d_cards;
 public:
     Chain<T>& operator+=(T*);
     int sell();

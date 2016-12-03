@@ -55,24 +55,26 @@ void Table::play() {
             cin >> choice;
         }
 
-        fstream out;
-
+        std::ostream* out;
 
         if (choice == "Y") {
             cout << "Where would you like to save the game to? Press enter to start a new game.";
             string file = "";
             cin >> file;
-            out.open (file);
+            std::ofstream fileout;
+            fileout.open(file);
             //TODO: for each card in the deck print it to the file
             //TODO: print the discard pile to the file
             //TODO: for each player: save their hand, save their chains, save their tradearea
-            out.close();
+            fileout.close();
             return;
+        } else {
+            out = &cout;
         }
 
         for (auto const &player : players) {
 
-            print(out);
+            print(*out);
 
             if (player->getMaxNumChains() < 3) {
                 choice = "";
@@ -88,10 +90,17 @@ void Table::play() {
 
             if (tradeArea->numCards() > 0) {
                 //TODO: Add gemstone cards from the TradeArea to chains or discard them
-//                tradeArea->
+                tradeArea->legal()
+                player->getChains();
+                //FOR each chain check if the type of that chain is the same as the card in the trade area
+                
             }
 
 //            Play topmost card from Hand.
+
+            //TODO: Print out current chains
+            //TODO: Print out the top card in the players hand
+
 //            If chain is ended, cards for chain are removed and player receives coin(s).
 //            If player decides to Play the now topmost card from Hand.
 //            If chain is ended, cards for chain are removed and player receives coin(s).
@@ -104,7 +113,7 @@ void Table::play() {
 
             if (choice == "Y") {
                 int arbitraryCard = -1;
-                player->getHand()->print(out);
+                player->getHand()->print(*out);
                 cout << "Which card would you like to remove 1-5?";
                 cin >> arbitraryCard;
                 if(arbitraryCard > -1) {
