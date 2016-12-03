@@ -1,18 +1,16 @@
 #include "gemstones.h"
 
-int Quartz::getCardsPerCoin(int coins) {
-    switch(coins) {
-        case 1:
-            return 4;
-        case 2:
-            return 6;
-        case 3:
-            return 8;
-        case 4:
-            return 10;
-        default:
-            return -1; //TODO: return illegal argument error
+int Quartz::getCoinsForCards(int cards) {
+    if(cards >= 4 && cards < 6) {
+        return 1;
+    } else if (cards >= 6 && cards < 8) {
+        return 2;
+    } else if (cards >= 8 && cards < 10) {
+        return 3;
+    } else if (cards > 10) {
+        return 4;
     }
+    return 0;
 }
 
 string Quartz::getName() {
@@ -36,7 +34,7 @@ int Hematite::getCardsPerCoin(int coins) {
         case 4:
             return 9;
         default:
-            return -1; //TODO: return illegal argument error
+            return 0;
     }
 }
 
@@ -59,7 +57,7 @@ int Obsidian::getCardsPerCoin(int coins) {
         case 4:
             return 8;
         default:
-            return -1; //TODO: return illegal argument error
+            return 0;
     }
 }
 
@@ -82,7 +80,7 @@ int Malachite::getCardsPerCoin(int coins) {
         case 4:
             return 7;
         default:
-            return -1; //TODO: return illegal argument error
+            return 0;
     }
 }
 
@@ -105,7 +103,7 @@ int Turquoise::getCardsPerCoin(int coins) {
         case 4:
             return 7;
         default:
-            return -1; //TODO: return illegal argument error
+            return 0;
     }
 }
 
@@ -129,7 +127,7 @@ int Ruby::getCardsPerCoin(int coins) {
         case 4:
             return 6;
         default:
-            return -1; //TODO: return illegal argument error
+            return 0;
     }
 }
 
@@ -152,7 +150,7 @@ int Amethyst::getCardsPerCoin(int coins) {
         case 4:
             return 5;
         default:
-            return -1; //TODO: return illegal argument error
+            return 0;
     }
 }
 
@@ -175,7 +173,7 @@ int Emerald::getCardsPerCoin(int coins) {
         case 4:
             return -1;
         default:
-            return -1; //TODO: return illegal argument error
+            return 0;
     }
 }
 
