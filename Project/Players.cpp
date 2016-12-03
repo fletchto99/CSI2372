@@ -55,11 +55,14 @@ void Player::buyThirdChain() {
    }
 }
 
-void Player::printHand(std::ostream & os, bool hand) {
+void Player::printHand(std::ostream & out, bool hand) {
+
     if(hand){
-         d_hand.print(os);
+         out << "Player's hand:" << endl;
+         d_hand.print(out);
     } else {
-        os << d_hand.top() << endl;
+        out << "Player's top card: ";
+        out << d_hand.top() << endl;
     }
 }
 

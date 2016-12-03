@@ -15,7 +15,7 @@ Card *DiscardPile::top() {
 }
 
 void DiscardPile::print(std::ostream & out) {
-    out << "Discard Pile: [" << endl;
+    out << "Discard Pile: [ ";
     for(auto card: d_cards){
         out << card << ", ";
     }

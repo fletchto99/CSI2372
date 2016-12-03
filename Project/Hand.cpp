@@ -54,8 +54,10 @@ Hand::Hand(std::istream &input , CardFactory *) {
 //    cout<<strName<<" "<<nSomeInteger<<" "<<nSomeInteger2<<endl;;
 }
 
-void Hand::print(std::ostream &os) {
+void Hand::print(std::ostream &out) {
+    out << "Hand: [ " ;
     for(auto cards: d_hand){
-        cout << cards << " " << endl;
+        cout << cards << " ," << endl;
     }
+    out << "]" << endl;
 }
