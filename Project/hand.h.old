@@ -1,6 +1,3 @@
-#ifndef CSI2372_HAND_H
-#define CSI2372_HAND_H
-
 #include "gemstones.h"
 #include "cardfactory.h"
 #include <queue>
@@ -17,6 +14,3 @@ public:
     Hand(std::istream&, CardFactory*);
     void print(std::ostream& os);
 };
-
-
-#endif

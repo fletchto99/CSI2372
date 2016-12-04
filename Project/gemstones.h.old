@@ -1,6 +1,3 @@
-#ifndef CSI2372_GEMSTONES_H
-#define CSI2372_GEMSTONES_H
-
 #include <string>
 #include "Chain.h"
 
@@ -61,6 +58,3 @@ class Emerald : public Card {
     string getName();
     void print(std::ostream& out);
 };
-
-
-#endif

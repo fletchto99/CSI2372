@@ -1,6 +1,3 @@
-#ifndef CSI2372_PLAYERS_H
-#define CSI2372_PLAYERS_H
-
 #include <string>
 #include <queue>
 #include "chain.h"
@@ -29,6 +26,3 @@ public:
     void printHand(std::ostream&, bool);
 
 };
-
-
-#endif

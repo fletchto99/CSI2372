@@ -1,6 +1,3 @@
-#ifndef CSI2372_TABLE_H
-#define CSI2372_TABLE_H
-
 #include <string>
 
 #include "Players.h"
@@ -20,6 +17,3 @@ public:
     void print(std::ostream&);
     void play();
 };
-
-
-#endif
