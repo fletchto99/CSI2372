@@ -1,4 +1,3 @@
-#include "deck.h"
 #include "gemstones.h"
 #include "cardfactory.h"
 
