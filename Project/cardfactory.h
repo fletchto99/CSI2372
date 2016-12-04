@@ -8,14 +8,14 @@
 class CardFactory {
 private:
     Deck<Card> d_deck = NULL;
-    static CardFactory* d_factory = nullptr;
+    static CardFactory* d_factory;
 
     CardFactory(std::istream &input);
 
 public:
     static CardFactory* getFactory();
     static CardFactory* getFactory(std::istream &input);
-    Deck getDeck();
+    Deck<Card> getDeck();
     ~CardFactory();
 };
 

@@ -13,7 +13,7 @@ class ChainBase {
 public:
     virtual Chain& operator+=(Card*) = 0;
     virtual int sell() = 0;
-    friend ostream& operator << (ostream& out, ChainBase& const chainBase) {
+    friend ostream& operator << (ostream& out, ChainBase& chainBase) {
         return out;
     }
 };

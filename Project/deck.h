@@ -1,14 +1,16 @@
 #ifndef DECK_H
 #define DECK_H
 
-#include "gemstones.h"
 #include "cardfactory.h"
+#include "gemstones.h"
+
 
 #include <vector>
 
 using namespace std;
+template <typename T>
 
-class Deck : public vector {
+class Deck : public vector<T> {
 
 public:
     /**

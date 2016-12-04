@@ -1,6 +1,6 @@
 #include <fstream>
-
 #include "cardfactory.h"
+
 
 CardFactory *CardFactory::getFactory() {
     if (d_factory == nullptr) {
@@ -17,7 +17,7 @@ CardFactory *CardFactory::getFactory(std::istream &input) {
     return d_factory;
 }
 
-Deck CardFactory::getDeck() {
+Deck<Card> CardFactory::getDeck() {
     std::random_shuffle(d_deck.begin(), d_deck.end());
     return d_deck;
 }
