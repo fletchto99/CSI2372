@@ -1,5 +1,5 @@
-#ifndef CSI2372_CARDFACTORY_H
-#define CSI2372_CARDFACTORY_H
+#ifndef CARDFACTORY_H
+#define CARDFACTORY_H
 
 #include <list>
 
@@ -7,7 +7,7 @@
 
 class CardFactory {
 private:
-    Deck <Card> d_deck = NULL;
+    Deck<Card> d_deck = NULL;
     static CardFactory* d_factory = nullptr;
 
     CardFactory(std::istream &input);

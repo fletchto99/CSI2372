@@ -1,3 +1,6 @@
+#ifndef GEMSTONES_H
+#define GEMSTONES_H
+
 #include <string>
 #include "Chain.h"
 
@@ -58,3 +61,4 @@ class Emerald : public Card {
     string getName();
     void print(std::ostream& out);
 };
+#endif

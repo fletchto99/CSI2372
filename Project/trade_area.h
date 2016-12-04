@@ -1,3 +1,6 @@
+#ifndef TRADEAREA_H
+#define TRADEAREA_H
+
 #include "gemstones.h"
 #include "cardfactory.h"
 #include <list>
@@ -16,3 +19,5 @@ public:
     TradeArea(std::istream&, CardFactory*);
     std::list<Card> getCards();
 };
+
+#endif

@@ -1,3 +1,6 @@
+#ifndef DECK_H
+#define DECK_H
+
 #include "gemstones.h"
 #include "cardfactory.h"
 
@@ -21,3 +24,4 @@ public:
     Card* draw();
 
 };
+#endif

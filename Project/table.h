@@ -1,9 +1,11 @@
+#ifndef TABLE_H
+#define TABLE_H
+
 #include <string>
 
 #include "Players.h"
 #include "discard_pile.h"
 #include "trade_area.h"
-
 
 class Table {
 private:
@@ -17,3 +19,5 @@ public:
     void print(std::ostream&);
     void play();
 };
+
+#endif

@@ -126,18 +126,24 @@ void Table::play() {
             }
 
             for (auto &card : tradeArea->getCards()) {
-                choice = "";
-                while (choice != "Y" || choice != "N") {
-                    cout << "Would you like chain this " + card.getName() + " card? [Y/N]";
-                    cin >> choice;
-                }
+                Chain *found = nullptr;
                 for (int i=0; i < player->getNumChains(); i++) {
-                    if (player->operator[](i)) {
-                        //T
+                    if (typeof(player->operator[](i)) == typeof(Card)) {
+                        found = &player->operator[](i);
                     }
-
-
                 }
+                if (found != nullptr) {
+                    choice = "";
+                    while (choice != "Y" || choice != "N") {
+                        cout << "Would you like chain this " + card.getName() + " card? [Y/N]";
+                        cin >> choice;
+                    }
+                    if (choice == "Y") {
+
+                    }
+                }
+
+
             }
 
 //            for all cards in the trade area

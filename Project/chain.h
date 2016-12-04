@@ -1,5 +1,5 @@
-#ifndef CSI2372_CHAIN_H
-#define CSI2372_CHAIN_H
+#ifndef CHAIN_H
+#define CHAIN_H
 
 #include <vector>
 #include <iostream>
@@ -11,7 +11,7 @@ using namespace std;
 
 class ChainBase {
 public:
-//    virtual Chain& operator+=(Card*) = 0;
+    virtual Chain& operator+=(Card*) = 0;
     virtual int sell() = 0;
     friend ostream& operator << (ostream& out, ChainBase& const chainBase) {
         return out;
@@ -31,7 +31,7 @@ public:
     Chain();
 };
 template <typename T>
-Chain &Chain::operator+=(T * type) {
+Chain &Chain::operator+=(T* type) {
    if(d_cards.front() != type){
        throw new IllegalType("Not the same type");
    } else {

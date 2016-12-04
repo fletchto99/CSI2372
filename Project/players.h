@@ -1,3 +1,6 @@
+#ifndef PLAYERS_H
+#define PLAYERS_H
+
 #include <string>
 #include <queue>
 #include "chain.h"
@@ -26,3 +29,5 @@ public:
     void printHand(std::ostream&, bool);
 
 };
+
+#endif

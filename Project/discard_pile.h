@@ -1,3 +1,6 @@
+#ifndef DISCARDPILE_H
+#define DISCARDPILE_H
+
 #include <vector>
 
 #include "gemstones.h"
@@ -18,3 +21,4 @@ public:
     void print( std::ostream& );
 
 };
+#endif

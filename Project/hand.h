@@ -1,3 +1,6 @@
+#ifndef HAND_H
+#define HAND_H
+
 #include "gemstones.h"
 #include "cardfactory.h"
 #include <queue>
@@ -14,3 +17,5 @@ public:
     Hand(std::istream&, CardFactory*);
     void print(std::ostream& os);
 };
+
+#endif
