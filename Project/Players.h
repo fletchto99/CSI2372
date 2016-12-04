@@ -23,6 +23,7 @@ public:
     Player& operator+=(int coins);
     int getMaxNumChains();
     int getNumChains();
+    Chain<Card> getAvaliableChains();
     Chain& operator[](int i);
     void buyThirdChain();
     void printHand(std::ostream&, bool);
