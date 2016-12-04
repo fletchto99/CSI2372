@@ -4,7 +4,6 @@
 #include "cardfactory.h"
 #include "gemstones.h"
 
-
 #include <vector>
 
 using namespace std;

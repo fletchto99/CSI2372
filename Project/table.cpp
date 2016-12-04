@@ -97,23 +97,29 @@ void Table::play() {
 
 //            Play topmost card from Hand.
 
+            if(player->getHand()) {
+
+            }
+//            If chain is ended, cards for chain are removed and player receives coin(s).
+
+
             //TODO: Print out current chains
             //TODO: Print out the top card in the players hand
 
-//            If chain is ended, cards for chain are removed and player receives coin(s).
+
 //            If player decides to Play the now topmost card from Hand.
 //            If chain is ended, cards for chain are removed and player receives coin(s).
 
             choice = "";
             while (choice != "Y" || choice != "N") {
-                cout << "Would you like to look at your hand and discard a card? [Y/N]";
+                *out << "Would you like to look at your hand and discard a card? [Y/N]";
                 cin >> choice;
             }
 
             if (choice == "Y") {
                 int arbitraryCard = -1;
                 player->getHand()->print(*out);
-                cout << "Which card would you like to remove 1-5?";
+                *out << "Which card would you like to remove 1-5?";
                 cin >> arbitraryCard;
                 if(arbitraryCard > -1) {
                     discardPile->operator+=(player->getHand()->operator[](1));
@@ -128,19 +134,23 @@ void Table::play() {
             for (auto &card : tradeArea->getCards()) {
                 Chain *found = nullptr;
                 for (int i=0; i < player->getNumChains(); i++) {
-                    if (typeof(player->operator[](i)) == typeof(Card)) {
-                        found = &player->operator[](i);
-                    }
+                    //TODO: Attempt to find a suitable chain for the current card
+//                    if (player->operator[](i)) {
+                    found = &player->operator[](i);
+//                    }
+
                 }
                 if (found != nullptr) {
                     choice = "";
                     while (choice != "Y" || choice != "N") {
-                        cout << "Would you like chain this " + card.getName() + " card? [Y/N]";
+                        *out << "Would you like chain this " + card.getName() + " card? [Y/N]";
                         cin >> choice;
                     }
                     if (choice == "Y") {
 
                     }
+                } else {
+                    *out << "Unable to chain card";
                 }
 
 

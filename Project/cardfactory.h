@@ -4,6 +4,7 @@
 #include <list>
 
 #include "deck.h"
+#include "gemstones.h"
 
 class CardFactory {
 private:
