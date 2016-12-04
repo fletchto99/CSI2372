@@ -7,6 +7,7 @@
 using namespace std;
 
 class Card {
+public:
     virtual int getCoinsForCards(int cards) = 0;
     virtual string getName() = 0;
     virtual void print(const ostream& out) = 0;
