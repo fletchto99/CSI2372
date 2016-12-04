@@ -17,6 +17,7 @@ public:
     Card* trade(const Card &);
     int numCards();
     TradeArea(std::istream&, CardFactory*);
+    std::list<Card> getCards();
 };
 
 

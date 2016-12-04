@@ -158,4 +158,3 @@ string Emerald::getName() {
 void Emerald::print(std::ostream &out) {
     out << " E " << endl;
 }
-

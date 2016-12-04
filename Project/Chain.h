@@ -44,6 +44,7 @@ int Chain::sell() override {
     int numOfCoins = 0;
     return numOfCoins;
 }
+
 template <typename T>
 Chain::Chain() {
 

@@ -23,6 +23,10 @@ int TradeArea::numCards() {
     return (sizeof(d_list))/(sizeof(Card));
 }
 
+std::list<Card> TradeArea::getCards() {
+    return d_list;
+}
+
 TradeArea::TradeArea(std::istream &, CardFactory *) {
 
 }
