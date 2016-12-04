@@ -11,7 +11,7 @@ using namespace std;
 
 class ChainBase {
 public:
-    virtual Chain& operator+=(Card*) = 0;
+//    virtual Chain& operator+=(Card*) = 0;
     virtual int sell() = 0;
     friend ostream& operator << (ostream& out, ChainBase& const chainBase) {
         return out;
