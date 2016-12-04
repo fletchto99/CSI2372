@@ -90,10 +90,9 @@ void Table::play() {
 
             if (tradeArea->numCards() > 0) {
                 //TODO: Add gemstone cards from the TradeArea to chains or discard them
-                tradeArea->legal()
-                player->getChains();
+//                player->getChains();
                 //FOR each chain check if the type of that chain is the same as the card in the trade area
-                
+
             }
 
 //            Play topmost card from Hand.
@@ -126,11 +125,26 @@ void Table::play() {
                 tradeArea->operator+=(discardPile->pickUp());
             }
 
+            for (auto &card : tradeArea->getCards()) {
+                choice = "";
+                while (choice != "Y" || choice != "N") {
+                    cout << "Would you like chain this " + card.getName() + " card? [Y/N]";
+                    cin >> choice;
+                }
+                for (int i=0; i < player->getNumChains(); i++) {
+                    if (player->operator[](i)) {
+                        //T
+                    }
+
+
+                }
+            }
+
 //            for all cards in the trade area
 //              if player wants to chain the card
 //                  chain the card
-//              If chain is ended
-//                  cards for chain are removed and player receives coin(s).
+//                  If chain is ended
+//                      cards for chain are removed and player receives coin(s).
 //              else
 //                  card remains in trade area for the next player.
 //            end
