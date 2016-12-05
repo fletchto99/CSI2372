@@ -39,7 +39,7 @@ int Player::getNumChains() {
 }
 
 Chain &Player::operator[](int i) {
-    return d_chains.at(i);
+    return (Chain &) d_chains.at(i);
 }
 
 void Player::buyThirdChain() {
