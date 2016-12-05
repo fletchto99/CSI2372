@@ -16,7 +16,7 @@ private:
     std::vector<Player *> players;
     DiscardPile *discardPile;
     TradeArea *tradeArea;
-    Deck deck = NULL;
+    Deck *deck;
 public:
 
     /**
