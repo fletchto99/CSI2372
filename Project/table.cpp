@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 
+#include "deck.h"
 #include "table.h"
 
 std::string &getName(int player) {
@@ -13,7 +14,7 @@ std::string &getName(int player) {
 }
 
 Table::Table(std::istream &file) {
-    deck = CardFactory::getFactory(file)->getDeck();
+    *deck = CardFactory::getFactory(file)->getDeck();
     discardPile = new DiscardPile(file, CardFactory::getFactory());
     tradeArea = new TradeArea(file, CardFactory::getFactory());
     players.push_back(new Player(file, getName(1)));
@@ -47,7 +48,7 @@ void Table::print(std::ostream &) {
 
 void Table::play() {
 
-    while (!deck.empty()) {
+    while (!deck->empty()) {
 
         std::string choice = "";
         while (choice != "Y" || choice != "N") {
@@ -86,7 +87,7 @@ void Table::play() {
                     player->buyThirdChain();
                 }
             }
-            player->getHand()->operator+=(deck.draw());
+            player->getHand()->operator+=(deck->draw());
 
             if (tradeArea->numCards() > 0) {
                 //TODO: Add gemstone cards from the TradeArea to chains or discard them
@@ -125,7 +126,7 @@ void Table::play() {
                     discardPile->operator+=(player->getHand()->operator[](1));
                 }
             }
-            tradeArea->operator+=(deck.draw());
+            tradeArea->operator+=(deck->draw());
 
             while (tradeArea->legal(discardPile->top())) {
                 tradeArea->operator+=(discardPile->pickUp());
@@ -165,7 +166,7 @@ void Table::play() {
 //                  card remains in trade area for the next player.
 //            end
 
-            player->getHand()->operator+=(deck.draw());
+            player->getHand()->operator+=(deck->draw());
         }
 
 
