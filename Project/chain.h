@@ -9,16 +9,7 @@
 /**
  * The base class which our chain template is derived from
  */
-class ChainBase {
-public:
-    virtual Chain &operator+=(Card *) = 0;
-
-    virtual int sell() = 0;
-
-    friend std::ostream &operator<<(std::ostream &out, ChainBase &chainBase) {
-        return out;
-    }
-};
+class ChainBase;
 
 /**
  * Initilizes the chain template by extending the abstract ChainBase class
@@ -36,7 +27,7 @@ public:
 };
 
 template<typename T>
-Chain &Chain::operator+=(T *type) {
+Chain &Chain<T>::operator+=(T *type) {
     if (d_cards.front() != type) {
         throw new IllegalType("Not the same type");
     } else {
@@ -45,14 +36,14 @@ Chain &Chain::operator+=(T *type) {
 }
 
 template<typename T>
-int Chain::sell() override {
+int Chain<T>::sell() override {
     int numOfCards = d_cards.size();
     int numOfCoins = 0;
     return numOfCoins;
 }
 
 template<typename T>
-Chain::Chain() {
+Chain<T>::Chain() {
 
 }
 

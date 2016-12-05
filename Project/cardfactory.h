@@ -3,9 +3,10 @@
 
 #include <list>
 
-#include "deck.h"
 #include "gemstones.h"
 
+
+class Deck;
 /**
  * The card factory is a singleton which contains one copy
  * of the deck. All deck operations must be applied to the
@@ -14,7 +15,7 @@
 class CardFactory {
 private:
     //Private vars used to hold instance information
-    Deck<Card> d_deck = NULL;
+    Deck *d_deck = nullptr;
     static CardFactory *d_factory;
 
     /**
@@ -47,7 +48,7 @@ public:
      *
      * @return The deck that is stored in the card factory
      */
-    Deck<Card> getDeck();
+    Deck getDeck();
 
     /**
      * Destroys the card factory

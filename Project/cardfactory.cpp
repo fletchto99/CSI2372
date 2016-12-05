@@ -1,5 +1,6 @@
 #include <fstream>
 #include "cardfactory.h"
+#include "deck.h"
 
 
 CardFactory *CardFactory::getFactory() {
@@ -17,9 +18,9 @@ CardFactory *CardFactory::getFactory(std::istream &input) {
     return d_factory;
 }
 
-Deck<Card> CardFactory::getDeck() {
-    std::random_shuffle(d_deck.begin(), d_deck.end());
-    return d_deck;
+Deck CardFactory::getDeck() {
+    std::random_shuffle(d_deck->begin(), d_deck->end());
+    return *d_deck;
 }
 
 CardFactory::~CardFactory() {
@@ -28,26 +29,26 @@ CardFactory::~CardFactory() {
 
 CardFactory::CardFactory(std::istream &input) {
     if (d_deck == NULL) {
-        d_deck = *new Deck(input, getFactory());
+        d_deck = new Deck(input, getFactory());
     }
-    if (d_deck.empty()) {
+    if (d_deck->empty()) {
         for (size_t i = 0; i < 104; i++) {
             if (i < 20) {
-                d_deck.push_back(new Quartz());
+                d_deck->push_back(new Quartz());
             } else if (i < 38) {
-                d_deck.push_back(new Hematite());
+                d_deck->push_back(new Hematite());
             } else if (i < 54) {
-                d_deck.push_back(new Obsidian());
+                d_deck->push_back(new Obsidian());
             } else if (i < 68) {
-                d_deck.push_back(new Malachite());
+                d_deck->push_back(new Malachite());
             } else if (i < 80) {
-                d_deck.push_back(new Turquoise());
+                d_deck->push_back(new Turquoise());
             } else if (i < 90) {
-                d_deck.push_back(new Ruby());
+                d_deck->push_back(new Ruby());
             } else if (i < 98) {
-                d_deck.push_back(new Amethyst());
+                d_deck->push_back(new Amethyst());
             } else {
-                d_deck.push_back(new Emerald());
+                d_deck->push_back(new Emerald());
             }
         }
     }

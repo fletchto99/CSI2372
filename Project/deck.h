@@ -10,8 +10,7 @@
  * The deck extends a vectory of type <T> which will eventually
  * store all of the cards, shuffled by the cardfactory
  */
-template <typename T>
-class Deck : public std::vector<T> {
+class Deck : public std::vector<Card*> {
 
 public:
     /**
