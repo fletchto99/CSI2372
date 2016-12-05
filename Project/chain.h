@@ -12,10 +12,24 @@
 class ChainBase;
 
 /**
+ * An exception to be thrown when a card of an illegal type is added to a chain
+ */
+class IllegalType : public std::exception {
+private:
+    std::string d_strError;
+public:
+    IllegalType(std::string _strError) : d_strError(_strError) {}
+
+    std::string getError() {
+        return d_strError;
+    }
+};
+
+/**
  * Initilizes the chain template by extending the abstract ChainBase class
  */
 template<class T>
-class Chain : ChainBase {
+class Chain {
 private:
     std::vector<T *> d_cards;
 public:
@@ -27,7 +41,7 @@ public:
 };
 
 template<typename T>
-Chain &Chain<T>::operator+=(T *type) {
+Chain<T> &Chain<T>::operator+=(T *type) {
     if (d_cards.front() != type) {
         throw new IllegalType("Not the same type");
     } else {
@@ -36,7 +50,7 @@ Chain &Chain<T>::operator+=(T *type) {
 }
 
 template<typename T>
-int Chain<T>::sell() override {
+int Chain<T>::sell() {
     int numOfCards = d_cards.size();
     int numOfCoins = 0;
     return numOfCoins;
@@ -46,19 +60,5 @@ template<typename T>
 Chain<T>::Chain() {
 
 }
-
-/**
- * An exception to be thrown when a card of an illegal type is added to a chain
- */
-class IllegalType : public std::exception
-{
-private:
-    std::string d_strError;
-public:
-    IllegalType(std::string _strError) : d_strError(_strError) {}
-
-    std::string getError() { return d_strError; }
-};
-
 
 #endif
