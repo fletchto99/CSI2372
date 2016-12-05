@@ -3,11 +3,11 @@
 
 #include "table.h"
 
-string &getName(int player) {
-    string name;
+std::string &getName(int player) {
+    std::string name;
     while (name == "") {
-        cout << "What is player " << player << "'s name?" << endl;
-        cin >> name;
+        std::cout << "What is player " << player << "'s name?" << std::endl;
+        std::cin >> name;
     }
     return name;
 }
@@ -113,14 +113,14 @@ void Table::play() {
             choice = "";
             while (choice != "Y" || choice != "N") {
                 *out << "Would you like to look at your hand and discard a card? [Y/N]";
-                cin >> choice;
+                std::cin >> choice;
             }
 
             if (choice == "Y") {
                 int arbitraryCard = -1;
                 player->getHand()->print(*out);
                 *out << "Which card would you like to remove 1-5?";
-                cin >> arbitraryCard;
+                std::cin >> arbitraryCard;
                 if(arbitraryCard > -1) {
                     discardPile->operator+=(player->getHand()->operator[](1));
                 }

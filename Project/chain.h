@@ -6,14 +6,12 @@
 #include "gemstones.h"
 #include "cardfactory.h"
 
-using namespace std;
-
 
 class ChainBase {
 public:
     virtual Chain& operator+=(Card*) = 0;
     virtual int sell() = 0;
-    friend ostream& operator << (ostream& out, ChainBase& chainBase) {
+    friend std::ostream& operator << (std::ostream& out, ChainBase& chainBase) {
         return out;
     }
 };

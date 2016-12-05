@@ -3,14 +3,11 @@
 
 #include "Table.h"
 
-using namespace std;
-
-
 int main() {
-    cout << "Where would you like to load the game from? Press enter to start a new game.";
-    string file = "";
-    cin >> file;
-    ifstream in;
+    std::cout << "Where would you like to load the game from? Press enter to start a new game.";
+    std::string file = "";
+    std::cin >> file;
+    std::ifstream in;
     in.open(file);
     (new Table(in)) -> play();
     in.close();

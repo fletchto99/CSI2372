@@ -1,7 +1,5 @@
 #include "hand.h"
 
-using namespace std;
-
 /**
  * Adds the card to the rear of the hand
  * @return

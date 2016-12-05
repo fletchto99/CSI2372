@@ -6,10 +6,9 @@
 
 #include <vector>
 
-using namespace std;
 template <typename T>
 
-class Deck : public vector<T> {
+class Deck : public std::vector<T> {
 
 public:
     /**

@@ -8,7 +8,7 @@
 
 class Player {
 private:
-    string d_name;
+    std::string d_name;
     int d_coins;
     int d_numChains;
     std::vector<Chain<Card>> d_chains;

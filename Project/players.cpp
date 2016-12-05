@@ -1,7 +1,6 @@
 #include "players.h"
 #include "Chain.h"
 #include <iostream>
-using namespace std;
 
 Player::Player(std::string &name) {
  d_name = name;
@@ -30,7 +29,7 @@ Player &Player::operator+=(int coins) {
 
 int Player::getNumChains() {
     if(d_chains.empty()) {
-        cout << "Your chains are empty" << endl;
+        std::cout << "Your chains are empty" << std::endl;
         return 0;
     }
     return d_numChains;
@@ -50,18 +49,18 @@ void Player::buyThirdChain() {
            // Chain chain (nullptr, nullptr);
        }
    } else {
-       cout << "You already have 3 chains, and you are only allow to have a maximum of 3 chains." << endl;
+       std::cout << "You already have 3 chains, and you are only allow to have a maximum of 3 chains." << std::endl;
    }
 }
 
 void Player::printHand(std::ostream & out, bool hand) {
 
     if(hand){
-         out << "Player's hand:" << endl;
+         out << "Player's hand:" << std::endl;
          d_hand.print(out);
     } else {
         out << "Player's top card: ";
-        out << d_hand.top() << endl;
+        out << d_hand.top() << std::endl;
     }
 }
 

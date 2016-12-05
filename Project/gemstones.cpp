@@ -13,13 +13,13 @@ int Quartz::getCoinsForCards(int cards) {
     return 0;
 }
 
-string Quartz::getName() {
+std::string Quartz::getName() {
     return "Quartz";
 
 }
 
 void Quartz::print(std::ostream &out) {
-    out << " Q " << endl;
+    out << " Q " << std::endl;
 }
 
 
@@ -35,12 +35,12 @@ int Hematite::getCoinsForCards(int cards) {
     }
 }
 
-string Hematite::getName() {
+std::string Hematite::getName() {
     return "Hematite";
 }
 
 void Hematite::print(std::ostream &out) {
-    out << " H " << endl;
+    out << " H " << std::endl;
 }
 
 int Obsidian::getCoinsForCards(int cards) {
@@ -55,12 +55,12 @@ int Obsidian::getCoinsForCards(int cards) {
     }
 }
 
-string Obsidian::getName() {
+std::string Obsidian::getName() {
     return "Obsidian";
 }
 
 void Obsidian::print(std::ostream &out) {
-    out << " O " << endl;
+    out << " O " << std::endl;
 }
 
 int Malachite::getCoinsForCards(int cards) {
@@ -75,12 +75,12 @@ int Malachite::getCoinsForCards(int cards) {
     }
 }
 
-string Malachite::getName() {
+std::string Malachite::getName() {
     return "Malachite";
 }
 
 void Malachite::print(std::ostream &out) {
-   out << " M " << endl;
+   out << " M " << std::endl;
 }
 
 int Turquoise::getCoinsForCards(int cards) {
@@ -95,12 +95,12 @@ int Turquoise::getCoinsForCards(int cards) {
     }
 }
 
-string Turquoise::getName() {
+std::string Turquoise::getName() {
     return "Turquoise";
 }
 
 void Turquoise::print(std::ostream &out) {
-    out << " T " << endl;
+    out << " T " << std::endl;
 }
 
 int Ruby::getCoinsForCards(int cards) {
@@ -115,12 +115,12 @@ int Ruby::getCoinsForCards(int cards) {
     }
 }
 
-string Ruby::getName() {
+std::string Ruby::getName() {
     return "Ruby";
 }
 
 void Ruby::print(std::ostream &out) {
-    out << " R " << endl;
+    out << " R " << std::endl;
 }
 
 int Amethyst::getCoinsForCards(int cards) {
@@ -135,12 +135,12 @@ int Amethyst::getCoinsForCards(int cards) {
     }
 }
 
-string Amethyst::getName() {
+std::string Amethyst::getName() {
     return "Amethyst";
 }
 
 void Amethyst::print(std::ostream &out) {
-    out << " A " << endl;
+    out << " A " << std::endl;
 }
 
 int Emerald::getCoinsForCards(int cards) {
@@ -151,10 +151,10 @@ int Emerald::getCoinsForCards(int cards) {
     }
 }
 
-string Emerald::getName() {
+std::string Emerald::getName() {
     return "Emerald";
 }
 
 void Emerald::print(std::ostream &out) {
-    out << " E " << endl;
+    out << " E " << std::endl;
 }

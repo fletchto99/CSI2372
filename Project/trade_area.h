@@ -10,7 +10,7 @@
  */
 class TradeArea {
 private:
-    std::list<Card> d_list;
+    std::list<Card*> d_list;
 public:
     TradeArea& operator+=(Card*);
     bool legal(Card*);

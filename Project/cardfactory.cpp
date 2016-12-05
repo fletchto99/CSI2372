@@ -4,7 +4,7 @@
 
 CardFactory *CardFactory::getFactory() {
     if (d_factory == nullptr) {
-        ifstream ignore;
+        std::ifstream ignore;
         d_factory = new CardFactory(ignore);
     }
     return d_factory;
