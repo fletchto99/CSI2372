@@ -10,8 +10,8 @@ bool TradeArea::legal(Card *card) {
 
 Card *TradeArea::trade(const Card &_card) {
     Card *tmp = nullptr;
-    for(auto a: d_list){
-        if(a == &_card){
+    for (auto a: d_list) {
+        if (a == &_card) {
             tmp = a;
             d_list.remove(a);
         }
@@ -20,7 +20,7 @@ Card *TradeArea::trade(const Card &_card) {
 }
 
 int TradeArea::numCards() {
-    return (sizeof(d_list))/(sizeof(Card));
+    return (sizeof(d_list)) / (sizeof(Card));
 }
 
 std::list<Card> TradeArea::getCards() {

@@ -14,19 +14,29 @@ private:
     std::vector<Chain<Card>> d_chains;
     Hand d_hand = NULL;
 public:
-    Player( std::istream&, std::string&);
-    Player( std::string& );
+    Player(std::istream &, std::string &);
 
-    Hand* getHand();
+    Player(std::string &);
+
+    Hand *getHand();
+
     std::string getName();
+
     int getNumCoins();
-    Player& operator+=(int coins);
+
+    Player &operator+=(int coins);
+
     int getMaxNumChains();
+
     int getNumChains();
+
     Chain<Card> getAvaliableChains();
-    Chain& operator[](int i);
+
+    Chain &operator[](int i);
+
     void buyThirdChain();
-    void printHand(std::ostream&, bool);
+
+    void printHand(std::ostream &, bool);
 
 };
 

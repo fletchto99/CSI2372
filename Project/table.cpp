@@ -19,7 +19,7 @@ Table::Table(std::istream &file) {
     players.push_back(new Player(getName(1)));
     players.push_back(new Player(getName(2)));
 
-    for(auto const &player: players) {
+    for (auto const &player: players) {
         for (int i = 0; i < 5; i++) {
             *player->getHand() += CardFactory::getFactory()->getDeck().draw();
         }
@@ -28,8 +28,8 @@ Table::Table(std::istream &file) {
 
 bool Table::win(std::string &winner) {
     if (CardFactory::getFactory()->getDeck().empty()) {
-        Player* win = nullptr;
-        for(auto const &player: players) {
+        Player *win = nullptr;
+        for (auto const &player: players) {
             if (win == nullptr || win->getNumCoins() < player->getNumCoins()) {
                 win = player;
             }
@@ -47,7 +47,7 @@ void Table::print(std::ostream &) {
 
 void Table::play() {
 
-    while(!deck.empty()) {
+    while (!deck.empty()) {
 
         string choice = "";
         while (choice != "Y" || choice != "N") {
@@ -55,7 +55,7 @@ void Table::play() {
             cin >> choice;
         }
 
-        std::ostream* out;
+        std::ostream *out;
 
         if (choice == "Y") {
             cout << "Where would you like to save the game to? Press enter to start a new game.";
@@ -97,7 +97,7 @@ void Table::play() {
 
 //            Play topmost card from Hand.
 
-            if(player->getHand()) {
+            if (player->getHand()) {
 
             }
 //            If chain is ended, cards for chain are removed and player receives coin(s).
@@ -121,7 +121,7 @@ void Table::play() {
                 player->getHand()->print(*out);
                 *out << "Which card would you like to remove 1-5?";
                 std::cin >> arbitraryCard;
-                if(arbitraryCard > -1) {
+                if (arbitraryCard > -1) {
                     discardPile->operator+=(player->getHand()->operator[](1));
                 }
             }
@@ -133,7 +133,7 @@ void Table::play() {
 
             for (auto &card : tradeArea->getCards()) {
                 Chain *found = nullptr;
-                for (int i=0; i < player->getNumChains(); i++) {
+                for (int i = 0; i < player->getNumChains(); i++) {
                     //TODO: Attempt to find a suitable chain for the current card
 //                    if (player->operator[](i)) {
                     found = &player->operator[](i);
@@ -167,8 +167,6 @@ void Table::play() {
 
             player->getHand()->operator+=(deck.draw());
         }
-
-
 
 
     }

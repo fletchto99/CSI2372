@@ -9,7 +9,7 @@ int main() {
     std::cin >> file;
     std::ifstream in;
     in.open(file);
-    (new Table(in)) -> play();
+    (new Table(in))->play();
     in.close();
     return 0;
 }

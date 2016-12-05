@@ -6,55 +6,67 @@
 #include "gemstones.h"
 #include "cardfactory.h"
 
-
+/**
+ * The base class which our chain template is derived from
+ */
 class ChainBase {
 public:
-    virtual Chain& operator+=(Card*) = 0;
+    virtual Chain &operator+=(Card *) = 0;
+
     virtual int sell() = 0;
-    friend std::ostream& operator << (std::ostream& out, ChainBase& chainBase) {
+
+    friend std::ostream &operator<<(std::ostream &out, ChainBase &chainBase) {
         return out;
     }
 };
 
 /**
- * Initialized the template Chain
- * d_cards vector
+ * Initilizes the chain template by extending the abstract ChainBase class
  */
-template <class T> class Chain : ChainBase {
+template<class T>
+class Chain : ChainBase {
 private:
-    std::vector<T*> d_cards;
+    std::vector<T *> d_cards;
 public:
-    Chain<T>& operator+=(T*);
+    Chain<T> &operator+=(T *);
+
     int sell();
+
     Chain();
 };
-template <typename T>
-Chain &Chain::operator+=(T* type) {
-   if(d_cards.front() != type){
-       throw new IllegalType("Not the same type");
-   } else {
-       d_cards.push_back(type);
-   }
+
+template<typename T>
+Chain &Chain::operator+=(T *type) {
+    if (d_cards.front() != type) {
+        throw new IllegalType("Not the same type");
+    } else {
+        d_cards.push_back(type);
+    }
 }
-template <typename T>
+
+template<typename T>
 int Chain::sell() override {
     int numOfCards = d_cards.size();
     int numOfCoins = 0;
     return numOfCoins;
 }
 
-template <typename T>
+template<typename T>
 Chain::Chain() {
 
 }
 
-class IllegalType //: public exception
+/**
+ * An exception to be thrown when a card of an illegal type is added to a chain
+ */
+class IllegalType : public std::exception
 {
 private:
     std::string d_strError;
 public:
-    IllegalType(std::string _strError) : d_strError(_strError){}
-    std::string getError(){return d_strError;}
+    IllegalType(std::string _strError) : d_strError(_strError) {}
+
+    std::string getError() { return d_strError; }
 };
 
 

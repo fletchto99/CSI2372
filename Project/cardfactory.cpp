@@ -31,7 +31,7 @@ CardFactory::CardFactory(std::istream &input) {
         d_deck = *new Deck(input, getFactory());
     }
     if (d_deck.empty()) {
-        for(size_t i = 0; i < 104; i++) {
+        for (size_t i = 0; i < 104; i++) {
             if (i < 20) {
                 d_deck.push_back(new Quartz());
             } else if (i < 38) {

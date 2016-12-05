@@ -5,7 +5,7 @@
  * @return
  */
 Hand &Hand::operator+=(Card *card) {
-     d_hand.back() = card;
+    d_hand.back() = card;
 }
 
 /**
@@ -13,9 +13,9 @@ Hand &Hand::operator+=(Card *card) {
  * @return
  */
 Card *Hand::play() {
-    Card* cardPtr = nullptr;
+    Card *cardPtr = nullptr;
 
-    if(!d_hand.empty()) {
+    if (!d_hand.empty()) {
         cardPtr = d_hand.front();
         d_hand.pop_back();
     }
@@ -28,7 +28,7 @@ Card *Hand::play() {
  * @return
  */
 Card *Hand::top() {
-    Card* cardPtr = d_hand.front();
+    Card *cardPtr = d_hand.front();
     return cardPtr;
 }
 
@@ -37,8 +37,8 @@ Card *Hand::top() {
  * @return
  */
 Card *Hand::operator[](int index) {
-    Card* cardPtr = nullptr;
-    if(!d_hand.empty()) {
+    Card *cardPtr = nullptr;
+    if (!d_hand.empty()) {
         cardPtr = d_hand.at(index);
         d_hand.erase(d_hand.begin() + index);
     }
@@ -46,16 +46,16 @@ Card *Hand::operator[](int index) {
 }
 
 
-Hand::Hand(std::istream &input , CardFactory *) {
+Hand::Hand(std::istream &input, CardFactory *) {
 //    d_hand.push_back()
 //    input>>strName>>nSomeInteger>>nSomeInteger2;
 //    cout<<strName<<" "<<nSomeInteger<<" "<<nSomeInteger2<<endl;;
 }
 
 void Hand::print(std::ostream &out) {
-    out << "Hand: [ " ;
-    for(auto cards: d_hand){
-        cout << cards << " ," << endl;
+    out << "Hand: [ ";
+    for (auto cards: d_hand) {
+        std::cout << cards << " ," << std::endl;
     }
-    out << "]" << endl;
+    out << "]" << std::endl;
 }

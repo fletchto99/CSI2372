@@ -1,7 +1,7 @@
 #include "gemstones.h"
 
 int Quartz::getCoinsForCards(int cards) {
-    if(cards >= 4 && cards < 6) {
+    if (cards >= 4 && cards < 6) {
         return 1;
     } else if (cards >= 6 && cards < 8) {
         return 2;
@@ -24,9 +24,9 @@ void Quartz::print(std::ostream &out) {
 
 
 int Hematite::getCoinsForCards(int cards) {
-    if(cards >= 3 && cards < 6){
+    if (cards >= 3 && cards < 6) {
         return 1;
-    } else if (cards  >= 6 && cards < 8) {
+    } else if (cards >= 6 && cards < 8) {
         return 2;
     } else if (cards >= 8) {
         return 3;
@@ -44,9 +44,9 @@ void Hematite::print(std::ostream &out) {
 }
 
 int Obsidian::getCoinsForCards(int cards) {
-    if(cards >= 3 && cards < 5){
+    if (cards >= 3 && cards < 5) {
         return 1;
-    } else if (cards  >= 5 && cards < 7) {
+    } else if (cards >= 5 && cards < 7) {
         return 2;
     } else if (cards >= 7) {
         return 3;
@@ -64,9 +64,9 @@ void Obsidian::print(std::ostream &out) {
 }
 
 int Malachite::getCoinsForCards(int cards) {
-    if(cards >= 3 && cards < 5){
+    if (cards >= 3 && cards < 5) {
         return 1;
-    } else if (cards  >= 5) {
+    } else if (cards >= 5) {
         return 2;
     } else if (cards >= 6) {
         return 3;
@@ -80,13 +80,13 @@ std::string Malachite::getName() {
 }
 
 void Malachite::print(std::ostream &out) {
-   out << " M " << std::endl;
+    out << " M " << std::endl;
 }
 
 int Turquoise::getCoinsForCards(int cards) {
-    if(cards >= 2 && cards < 4){
+    if (cards >= 2 && cards < 4) {
         return 1;
-    } else if (cards  >= 4 && cards < 6) {
+    } else if (cards >= 4 && cards < 6) {
         return 2;
     } else if (cards >= 6) {
         return 3;
@@ -104,9 +104,9 @@ void Turquoise::print(std::ostream &out) {
 }
 
 int Ruby::getCoinsForCards(int cards) {
-    if(cards >= 2){
+    if (cards >= 2) {
         return 1;
-    } else if (cards  >= 4) {
+    } else if (cards >= 4) {
         return 2;
     } else if (cards >= 5) {
         return 3;
@@ -124,9 +124,9 @@ void Ruby::print(std::ostream &out) {
 }
 
 int Amethyst::getCoinsForCards(int cards) {
-    if(cards >= 2){
+    if (cards >= 2) {
         return 1;
-    } else if (cards  >= 3) {
+    } else if (cards >= 3) {
         return 2;
     } else if (cards >= 4) {
         return 3;
@@ -144,7 +144,7 @@ void Amethyst::print(std::ostream &out) {
 }
 
 int Emerald::getCoinsForCards(int cards) {
-    if (cards  >= 2) {
+    if (cards >= 2) {
         return 2;
     } else if (cards >= 3) {
         return 3;
