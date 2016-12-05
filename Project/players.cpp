@@ -1,5 +1,14 @@
 #include "players.h"
 
+class NotEnoughCoins {
+private:
+    std::string d_strError;
+public:
+    NotEnoughCoins(std::string _strError) : d_strError(_strError) {}
+
+    std::string getError() { return d_strError; }
+};
+
 Player::Player(std::istream &is, std::string &_name) {
     //d_hand = new Hand(is, CardFactory::CardFactory _factory);
 }
@@ -61,12 +70,3 @@ void Player::printHand(std::ostream &out, bool hand) {
 Hand *Player::getHand() {
     return &d_hand;
 }
-
-class NotEnoughCoins {
-private:
-    std::string d_strError;
-public:
-    NotEnoughCoins(std::string _strError) : d_strError(_strError) {}
-
-    std::string getError() { return d_strError; }
-};
