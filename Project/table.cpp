@@ -16,8 +16,8 @@ Table::Table(std::istream &file) {
     deck = CardFactory::getFactory(file)->getDeck();
     discardPile = new DiscardPile(file, CardFactory::getFactory());
     tradeArea = new TradeArea(file, CardFactory::getFactory());
-    players.push_back(new Player(getName(1)));
-    players.push_back(new Player(getName(2)));
+    players.push_back(new Player(file, getName(1)));
+    players.push_back(new Player(file, getName(2)));
 
     for (auto const &player: players) {
         for (int i = 0; i < 5; i++) {
@@ -49,18 +49,18 @@ void Table::play() {
 
     while (!deck.empty()) {
 
-        string choice = "";
+        std::string choice = "";
         while (choice != "Y" || choice != "N") {
-            cout << "Would you like to pause the game? [Y/N]";
-            cin >> choice;
+            std::cout << "Would you like to pause the game? [Y/N]";
+            std::cin >> choice;
         }
 
         std::ostream *out;
 
         if (choice == "Y") {
-            cout << "Where would you like to save the game to? Press enter to start a new game.";
-            string file = "";
-            cin >> file;
+            std::cout << "Where would you like to save the game to? Press enter to start a new game.";
+            std::string file = "";
+            std::cin >> file;
             std::ofstream fileout;
             fileout.open(file);
             //TODO: for each card in the deck print it to the file
@@ -69,7 +69,7 @@ void Table::play() {
             fileout.close();
             return;
         } else {
-            out = &cout;
+            out = &std::cout;
         }
 
         for (auto const &player : players) {
@@ -79,8 +79,8 @@ void Table::play() {
             if (player->getMaxNumChains() < 3) {
                 choice = "";
                 while (choice != "Y" || choice != "N") {
-                    cout << "Would you like to pause the game? [Y/N]";
-                    cin >> choice;
+                    std::cout << "Would you like to pause the game? [Y/N]";
+                    std::cin >> choice;
                 }
                 if (choice == "Y") {
                     player->buyThirdChain();
@@ -144,7 +144,7 @@ void Table::play() {
                     choice = "";
                     while (choice != "Y" || choice != "N") {
                         *out << "Would you like chain this " + card.getName() + " card? [Y/N]";
-                        cin >> choice;
+                        std::cin >> choice;
                     }
                     if (choice == "Y") {
 

@@ -19,7 +19,7 @@ void DiscardPile::print(std::ostream &out) {
     for (auto card: d_cards) {
         out << card << ", ";
     }
-    out << " ]" << endl;
+    out << " ]" << std::endl;
 }
 
 DiscardPile::DiscardPile(std::istream &, CardFactory *) {
