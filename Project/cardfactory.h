@@ -2,11 +2,12 @@
 #define CARDFACTORY_H
 
 #include <list>
+#include <fstream>
 
-#include "gemstones.h"
-
+#include "deck.h"
 
 class Deck;
+
 /**
  * The card factory is a singleton which contains one copy
  * of the deck. All deck operations must be applied to the
@@ -15,7 +16,7 @@ class Deck;
 class CardFactory {
 private:
     //Private vars used to hold instance information
-    Deck *d_deck = nullptr;
+    Deck *d_deck;
     static CardFactory *d_factory;
 
     /**
@@ -33,7 +34,10 @@ public:
      *
      * @return The cardfactory instance
      */
-    static CardFactory *getFactory();
+    static CardFactory *getFactory() {
+        std::ifstream ignore;
+        return new CardFactory(ignore);
+    }
 
     /**
      * Retrieves the instance of the card factory
@@ -41,14 +45,16 @@ public:
      *
      * @return The cardfactory instance
      */
-    static CardFactory *getFactory(std::istream &input);
+    static CardFactory *getFactory(std::istream &input) {
+        return new CardFactory(input);
+    };
 
     /**
      * Retrieves the deck
      *
      * @return The deck that is stored in the card factory
      */
-    Deck getDeck();
+    Deck *getDeck();
 
     /**
      * Destroys the card factory

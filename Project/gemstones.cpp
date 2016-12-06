@@ -33,6 +33,7 @@ int Hematite::getCoinsForCards(int cards) {
     } else if (cards >= 9) {
         return 4;
     }
+    return 0;
 }
 
 std::string Hematite::getName() {
@@ -53,6 +54,7 @@ int Obsidian::getCoinsForCards(int cards) {
     } else if (cards >= 8) {
         return 4;
     }
+    return 0;
 }
 
 std::string Obsidian::getName() {
@@ -73,6 +75,7 @@ int Malachite::getCoinsForCards(int cards) {
     } else if (cards >= 7) {
         return 4;
     }
+    return 0;
 }
 
 std::string Malachite::getName() {
@@ -93,6 +96,7 @@ int Turquoise::getCoinsForCards(int cards) {
     } else if (cards >= 7) {
         return 4;
     }
+    return 0;
 }
 
 std::string Turquoise::getName() {
@@ -113,6 +117,7 @@ int Ruby::getCoinsForCards(int cards) {
     } else if (cards >= 6) {
         return 4;
     }
+    return 0;
 }
 
 std::string Ruby::getName() {
@@ -133,6 +138,7 @@ int Amethyst::getCoinsForCards(int cards) {
     } else if (cards >= 5) {
         return 4;
     }
+    return 0;
 }
 
 std::string Amethyst::getName() {
@@ -149,6 +155,7 @@ int Emerald::getCoinsForCards(int cards) {
     } else if (cards >= 3) {
         return 3;
     }
+    return 0;
 }
 
 std::string Emerald::getName() {

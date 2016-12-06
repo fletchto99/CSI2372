@@ -1,10 +1,9 @@
 #ifndef HAND_H
 #define HAND_H
 
-#include "gemstones.h"
-#include "cardfactory.h"
-#include <queue>
 #include <vector>
+
+#include "cardfactory.h"
 
 /**
  * Stores a player's hand in a vector

@@ -6,7 +6,9 @@ private:
 public:
     NotEnoughCoins(std::string _strError) : d_strError(_strError) {}
 
-    std::string getError() { return d_strError; }
+    std::string getError() {
+        return d_strError;
+    }
 };
 
 Player::Player(std::istream &is, std::string &_name) {
@@ -22,24 +24,23 @@ int Player::getNumCoins() {
 }
 
 int Player::getMaxNumChains() {
-    if (d_numChains)
-        return 2;
+    return d_numChains;
 }
 
 Player &Player::operator+=(int coins) {
     d_coins += coins;
+    return *this;
 }
 
 int Player::getNumChains() {
     if (d_chains.empty()) {
-        std::cout << "Your chains are empty" << std::endl;
         return 0;
     }
-    return d_numChains;
+    return sizeof(d_chains);
 }
 
-Chain &Player::operator[](int i) {
-    return (Chain &) d_chains.at(i);
+Chain<ChainBase> &Player::operator[](int i) {
+    return (Chain<ChainBase> &) d_chains.at(i);
 }
 
 void Player::buyThirdChain() {
@@ -60,13 +61,13 @@ void Player::printHand(std::ostream &out, bool hand) {
 
     if (hand) {
         out << "Player's hand:" << std::endl;
-        d_hand.print(out);
+        d_hand->print(out);
     } else {
         out << "Player's top card: ";
-        out << d_hand.top() << std::endl;
+        out << d_hand->top() << std::endl;
     }
 }
 
 Hand *Player::getHand() {
-    return &d_hand;
+    return d_hand;
 }

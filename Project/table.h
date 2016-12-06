@@ -2,9 +2,12 @@
 #define TABLE_H
 
 #include <string>
+#include <iostream>
+#include <fstream>
 
-#include "Players.h"
+#include "deck.h"
 #include "discard_pile.h"
+#include "players.h"
 #include "trade_area.h"
 
 /**
@@ -13,10 +16,10 @@
 class Table {
 private:
     //The vars to store the information in
-    std::vector<Player *> players;
-    DiscardPile *discardPile;
-    TradeArea *tradeArea;
-    Deck *deck;
+    std::vector<Player *> d_players;
+    DiscardPile *d_discardPile;
+    TradeArea *d_tradeArea;
+    Deck *d_deck;
 public:
 
     /**

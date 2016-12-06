@@ -2,7 +2,7 @@
 #define GEMSTONES_H
 
 #include <string>
-#include "Chain.h"
+#include <iostream>
 
 /**
  * An abstract class representing the card type

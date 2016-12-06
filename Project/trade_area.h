@@ -1,9 +1,9 @@
 #ifndef TRADEAREA_H
 #define TRADEAREA_H
 
-#include "gemstones.h"
-#include "cardfactory.h"
 #include <list>
+
+#include "cardfactory.h"
 
 /**
  * TradeArea holds the cards in a list. It supports adding and removing cards
@@ -58,7 +58,7 @@ public:
      *
      * @return The cards in the trade area
      */
-    std::list<Card> getCards();
+    std::list<Card *> getCards();
 };
 
 #endif

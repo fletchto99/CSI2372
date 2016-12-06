@@ -3,13 +3,15 @@
 
 #include <vector>
 #include <iostream>
-#include "gemstones.h"
+
 #include "cardfactory.h"
 
 /**
  * The base class which our chain template is derived from
  */
-class ChainBase;
+class ChainBase {
+
+};
 
 /**
  * An exception to be thrown when a card of an illegal type is added to a chain
@@ -51,7 +53,6 @@ Chain<T> &Chain<T>::operator+=(T *type) {
 
 template<typename T>
 int Chain<T>::sell() {
-    int numOfCards = d_cards.size();
     int numOfCoins = 0;
     return numOfCoins;
 }

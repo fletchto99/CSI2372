@@ -2,7 +2,8 @@
 #define PLAYERS_H
 
 #include <string>
-#include <queue>
+#include <vector>
+
 #include "chain.h"
 #include "hand.h"
 
@@ -16,8 +17,8 @@ private:
     std::string d_name;
     int d_coins;
     int d_numChains;
-    std::vector<ChainBase> d_chains;
-    Hand d_hand = NULL;
+    std::vector<ChainBase *> d_chains;
+    Hand *d_hand;
 public:
 
     /**
@@ -76,7 +77,7 @@ public:
      * @param i The index to look up the chain at
      * @return The chain at the specific index
      */
-    Chain &operator[](int i);
+    Chain<ChainBase> &operator[](int i);
 
     /**
      * Adds a third chain to the player's chain vector

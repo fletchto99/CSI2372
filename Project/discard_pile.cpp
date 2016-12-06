@@ -2,6 +2,7 @@
 
 DiscardPile &DiscardPile::operator+=(Card *card) {
     d_cards.push_back(card);
+    return *this;
 }
 
 Card *DiscardPile::pickUp() {

@@ -1,7 +1,3 @@
-#include <iostream>
-#include <fstream>
-
-#include "deck.h"
 #include "table.h"
 
 std::string &getName(int player) {
@@ -14,23 +10,23 @@ std::string &getName(int player) {
 }
 
 Table::Table(std::istream &file) {
-    *deck = CardFactory::getFactory(file)->getDeck();
-    discardPile = new DiscardPile(file, CardFactory::getFactory());
-    tradeArea = new TradeArea(file, CardFactory::getFactory());
-    players.push_back(new Player(file, getName(1)));
-    players.push_back(new Player(file, getName(2)));
+    d_deck = CardFactory::getFactory(file)->getDeck();
+    d_discardPile = new DiscardPile(file, CardFactory::getFactory());
+    d_tradeArea = new TradeArea(file, CardFactory::getFactory());
+    d_players.push_back(new Player(file, getName(1)));
+    d_players.push_back(new Player(file, getName(2)));
 
-    for (auto const &player: players) {
+    for (auto const &player: d_players) {
         for (int i = 0; i < 5; i++) {
-            *player->getHand() += CardFactory::getFactory()->getDeck().draw();
+            *player->getHand() += d_deck->draw();
         }
     }
 }
 
 bool Table::win(std::string &winner) {
-    if (CardFactory::getFactory()->getDeck().empty()) {
+    if (d_deck->empty()) {
         Player *win = nullptr;
-        for (auto const &player: players) {
+        for (auto const &player: d_players) {
             if (win == nullptr || win->getNumCoins() < player->getNumCoins()) {
                 win = player;
             }
@@ -48,7 +44,7 @@ void Table::print(std::ostream &) {
 
 void Table::play() {
 
-    while (!deck->empty()) {
+    while (!d_deck->empty()) {
 
         std::string choice = "";
         while (choice != "Y" || choice != "N") {
@@ -73,7 +69,7 @@ void Table::play() {
             out = &std::cout;
         }
 
-        for (auto const &player : players) {
+        for (auto const &player : d_players) {
 
             print(*out);
 
@@ -87,9 +83,9 @@ void Table::play() {
                     player->buyThirdChain();
                 }
             }
-            player->getHand()->operator+=(deck->draw());
+            player->getHand()->operator+=(d_deck->draw());
 
-            if (tradeArea->numCards() > 0) {
+            if (d_tradeArea->numCards() > 0) {
                 //TODO: Add gemstone cards from the TradeArea to chains or discard them
 //                player->getChains();
                 //FOR each chain check if the type of that chain is the same as the card in the trade area
@@ -123,17 +119,17 @@ void Table::play() {
                 *out << "Which card would you like to remove 1-5?";
                 std::cin >> arbitraryCard;
                 if (arbitraryCard > -1) {
-                    discardPile->operator+=(player->getHand()->operator[](1));
+                    d_discardPile->operator+=(player->getHand()->operator[](1));
                 }
             }
-            tradeArea->operator+=(deck->draw());
+            d_tradeArea->operator+=(d_deck->draw());
 
-            while (tradeArea->legal(discardPile->top())) {
-                tradeArea->operator+=(discardPile->pickUp());
+            while (d_tradeArea->legal(d_discardPile->top())) {
+                d_tradeArea->operator+=(d_discardPile->pickUp());
             }
 
-            for (auto &card : tradeArea->getCards()) {
-                Chain *found = nullptr;
+            for (auto &card : d_tradeArea->getCards()) {
+                Chain<ChainBase> *found = nullptr;
                 for (int i = 0; i < player->getNumChains(); i++) {
                     //TODO: Attempt to find a suitable chain for the current card
 //                    if (player->operator[](i)) {
@@ -144,7 +140,7 @@ void Table::play() {
                 if (found != nullptr) {
                     choice = "";
                     while (choice != "Y" || choice != "N") {
-                        *out << "Would you like chain this " + card.getName() + " card? [Y/N]";
+                        *out << "Would you like chain this " + card->getName() + " card? [Y/N]";
                         std::cin >> choice;
                     }
                     if (choice == "Y") {
@@ -166,7 +162,7 @@ void Table::play() {
 //                  card remains in trade area for the next player.
 //            end
 
-            player->getHand()->operator+=(deck->draw());
+            player->getHand()->operator+=(d_deck->draw());
         }
 
 

@@ -3,7 +3,6 @@
 
 #include <vector>
 
-#include "gemstones.h"
 #include "cardfactory.h"
 
 /**

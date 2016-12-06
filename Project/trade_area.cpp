@@ -2,6 +2,7 @@
 
 TradeArea &TradeArea::operator+=(Card *card) {
     d_list.back() = card;
+    return *this;
 }
 
 bool TradeArea::legal(Card *card) {
@@ -23,7 +24,7 @@ int TradeArea::numCards() {
     return (sizeof(d_list)) / (sizeof(Card));
 }
 
-std::list<Card> TradeArea::getCards() {
+std::list<Card *> TradeArea::getCards() {
     return d_list;
 }
 

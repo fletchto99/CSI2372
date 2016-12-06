@@ -1,34 +1,15 @@
-#include <fstream>
 #include "cardfactory.h"
-#include "deck.h"
 
-
-CardFactory *CardFactory::getFactory() {
-    if (d_factory == nullptr) {
-        std::ifstream ignore;
-        d_factory = new CardFactory(ignore);
-    }
-    return d_factory;
-}
-
-CardFactory *CardFactory::getFactory(std::istream &input) {
-    if (d_factory == nullptr) {
-        d_factory = new CardFactory(input);
-    }
-    return d_factory;
-}
-
-Deck CardFactory::getDeck() {
-    std::random_shuffle(d_deck->begin(), d_deck->end());
-    return *d_deck;
+Deck *CardFactory::getDeck() {
+    return d_deck;
 }
 
 CardFactory::~CardFactory() {
-
+    delete d_deck;
 }
 
 CardFactory::CardFactory(std::istream &input) {
-    if (d_deck == NULL) {
+    if (d_deck == nullptr) {
         d_deck = new Deck(input, getFactory());
     }
     if (d_deck->empty()) {
@@ -51,5 +32,7 @@ CardFactory::CardFactory(std::istream &input) {
                 d_deck->push_back(new Emerald());
             }
         }
+        //Only shuffle when a new deck is made. If we're loading from a file we want to persist the deck
+        std::random_shuffle(d_deck->begin(), d_deck->end());
     }
 }
