@@ -41,7 +41,7 @@ public:
 
     Chain();
 
-    friend std::ostream& operator << (std::ostream& out, T& const card){
+    friend std::ostream& operator << (std::ostream& out, const T& card){
         if(typeid(card) == typeid(Card)){
             ((Card)card).print(out);
         }
