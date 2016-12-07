@@ -40,7 +40,16 @@ public:
     int sell();
 
     Chain();
+
+    friend std::ostream& operator << (std::ostream& out, T& const card){
+        if(typeid(card) == typeid(Card)){
+            ((Card)card).print(out);
+        }
+        return out;
+    }
 };
+
+
 
 template<typename T>
 Chain<T> &Chain<T>::operator+=(T *type) {
