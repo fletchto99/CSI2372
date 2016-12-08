@@ -39,8 +39,8 @@ int Player::getNumChains() {
     return sizeof(d_chains);
 }
 
-Chain<ChainBase> &Player::operator[](int i) {
-    return (Chain<ChainBase> &) d_chains.at(i);
+Chain<Card*> *Player::operator[](int i) {
+    return d_chains.at(i);
 }
 
 void Player::buyThirdChain() {

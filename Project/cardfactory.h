@@ -17,7 +17,6 @@ class CardFactory {
 private:
     //Private vars used to hold instance information
     Deck *d_deck;
-    static CardFactory *d_factory;
 
     /**
      * Creates an instance of the deck, shuffling all of the cards

@@ -17,7 +17,7 @@ private:
     std::string d_name;
     int d_coins;
     int d_numChains;
-    std::vector<ChainBase *> d_chains;
+    std::vector<Chain<Card*>*> d_chains;
     Hand *d_hand;
 public:
 
@@ -77,7 +77,7 @@ public:
      * @param i The index to look up the chain at
      * @return The chain at the specific index
      */
-    Chain<ChainBase> &operator[](int i);
+    Chain<Card*> *operator[](int i);
 
     /**
      * Adds a third chain to the player's chain vector

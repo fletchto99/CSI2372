@@ -7,13 +7,6 @@
 #include "cardfactory.h"
 
 /**
- * The base class which our chain template is derived from
- */
-class ChainBase {
-
-};
-
-/**
  * An exception to be thrown when a card of an illegal type is added to a chain
  */
 class IllegalType : public std::exception {
@@ -47,6 +40,8 @@ public:
         }
         return out;
     }
+
+    T peek();
 };
 
 
@@ -58,12 +53,18 @@ Chain<T> &Chain<T>::operator+=(T *type) {
     } else {
         d_cards.push_back(type);
     }
+    return *this;
 }
 
 template<typename T>
 int Chain<T>::sell() {
     int numOfCoins = 0;
     return numOfCoins;
+}
+
+template<typename T>
+T Chain::peek() {
+    return d_cards.front();
 }
 
 template<typename T>

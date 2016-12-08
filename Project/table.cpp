@@ -129,13 +129,12 @@ void Table::play() {
             }
 
             for (auto &card : d_tradeArea->getCards()) {
-                Chain<ChainBase> *found = nullptr;
+                Chain<Card*> *found = nullptr;
                 for (int i = 0; i < player->getNumChains(); i++) {
-                    //TODO: Attempt to find a suitable chain for the current card
-//                    if (player->operator[](i)) {
-                    found = &player->operator[](i);
+//                    if (typeid(card) == typeid(player->operator[](i)->getType())) {
+//                        found = player->operator[](i);
+//                        break;
 //                    }
-
                 }
                 if (found != nullptr) {
                     choice = "";
@@ -144,10 +143,12 @@ void Table::play() {
                         std::cin >> choice;
                     }
                     if (choice == "Y") {
-
+                        //TODO: They want to chain the card
+                    } else {
+                        //TODO: they don't wanna chain the card
                     }
                 } else {
-                    *out << "Unable to chain card";
+                    *out << "Unable to chain card... Discarding";
                 }
 
 

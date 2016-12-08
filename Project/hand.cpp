@@ -17,8 +17,7 @@ Card *Hand::play() {
 }
 
 Card *Hand::top() {
-    Card *cardPtr = d_hand.front();
-    return cardPtr;
+    return d_hand.front();
 }
 
 Card *Hand::operator[](int index) {
