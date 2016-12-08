@@ -6,8 +6,6 @@
 
 #include "deck.h"
 
-class Deck;
-
 /**
  * The card factory is a singleton which contains one copy
  * of the deck. All deck operations must be applied to the

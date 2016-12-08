@@ -63,7 +63,7 @@ int Chain<T>::sell() {
 }
 
 template<typename T>
-T Chain::peek() {
+T Chain<T>::peek() {
     return d_cards.front();
 }
 
