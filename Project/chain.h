@@ -41,7 +41,9 @@ public:
         return out;
     }
 
-    T peek();
+    T* peek();
+
+    int length();
 };
 
 
@@ -59,12 +61,18 @@ Chain<T> &Chain<T>::operator+=(T *type) {
 template<typename T>
 int Chain<T>::sell() {
     int numOfCoins = 0;
+
     return numOfCoins;
 }
 
 template<typename T>
-T Chain<T>::peek() {
+T* Chain<T>::peek() {
     return d_cards.front();
+}
+
+template<typename T>
+int Chain<T>::length() {
+    return sizeof(d_cards) / sizeof(T);
 }
 
 template<typename T>

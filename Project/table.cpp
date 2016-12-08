@@ -10,17 +10,24 @@ std::string &getName(int player) {
 }
 
 Table::Table(std::istream &file) {
+    std::cout << "1";
     d_deck = CardFactory::getFactory(file)->getDeck();
+    std::cout << "2";
     d_discardPile = new DiscardPile(file, CardFactory::getFactory());
+    std::cout << "3";
     d_tradeArea = new TradeArea(file, CardFactory::getFactory());
+    std::cout << "4";
     d_players.push_back(new Player(file, getName(1)));
+    std::cout << "5";
     d_players.push_back(new Player(file, getName(2)));
 
+    std::cout << "6";
     for (auto const &player: d_players) {
         for (int i = 0; i < 5; i++) {
             *player->getHand() += d_deck->draw();
         }
     }
+    std::cout << "test";
 }
 
 bool Table::win(std::string &winner) {
@@ -128,6 +135,7 @@ void Table::play() {
                 d_tradeArea->operator+=(d_discardPile->pickUp());
             }
 
+            //For each card in the trade area check if it is chainable to the player
             for (auto &card : d_tradeArea->getCards()) {
                 Chain<Card*> *found = nullptr;
                 for (int i = 0; i < player->getNumChains(); i++) {
@@ -143,9 +151,18 @@ void Table::play() {
                         std::cin >> choice;
                     }
                     if (choice == "Y") {
-                        //TODO: They want to chain the card
+                        found->operator+=(&card);
+                        choice = "";
+                        while (choice != "Y" || choice != "N") {
+                            *out << "You have " << found->length() << " cards in this chain of " << ((Card*)found->peek())->getName() << std::endl;
+                            *out << "Would you like sell this chain? [Y/N]";
+                            std::cin >> choice;
+                        }
+                        if (choice == "Y") {
+                            player->operator+=(found->sell());
+                        }
                     } else {
-                        //TODO: they don't wanna chain the card
+                        *out << "Discarding card";
                     }
                 } else {
                     *out << "Unable to chain card... Discarding";
@@ -154,15 +171,8 @@ void Table::play() {
 
             }
 
-//            for all cards in the trade area
-//              if player wants to chain the card
-//                  chain the card
-//                  If chain is ended
-//                      cards for chain are removed and player receives coin(s).
-//              else
-//                  card remains in trade area for the next player.
-//            end
-
+            //Draw 2 cards from the deck to the hand
+            player->getHand()->operator+=(d_deck->draw());
             player->getHand()->operator+=(d_deck->draw());
         }
 
