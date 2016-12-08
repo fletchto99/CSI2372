@@ -7,5 +7,6 @@ Card *Deck::draw() {
     return res;
 }
 
-Deck::Deck(std::istream &input, CardFactory *) {
+Deck::Deck(std::istream &input, CardFactory *cardFactory) {
+
 }

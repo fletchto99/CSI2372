@@ -10,7 +10,7 @@ CardFactory::~CardFactory() {
 
 CardFactory::CardFactory(std::istream &input) {
     if (d_deck == nullptr) {
-        d_deck = new Deck(input, getFactory());
+        d_deck = new Deck(input, this);
     }
     if (d_deck->empty()) {
         for (size_t i = 0; i < 104; i++) {

@@ -33,7 +33,8 @@ public:
      */
     static CardFactory *getFactory() {
         std::ifstream ignore;
-        return new CardFactory(ignore);
+        static CardFactory *instance = new CardFactory(ignore);
+        return instance;
     }
 
     /**
@@ -43,7 +44,8 @@ public:
      * @return The cardfactory instance
      */
     static CardFactory *getFactory(std::istream &input) {
-        return new CardFactory(input);
+        static CardFactory *instance = new CardFactory(input);
+        return instance;
     };
 
     /**

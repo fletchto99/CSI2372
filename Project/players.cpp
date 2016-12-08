@@ -71,3 +71,8 @@ void Player::printHand(std::ostream &out, bool hand) {
 Hand *Player::getHand() {
     return d_hand;
 }
+
+void Player::sellChain(Chain<Card*> *chain) {
+    this->operator+=(chain->sell());
+    d_chains.erase(std::remove(d_chains.begin(), d_chains.end(), chain), d_chains.end());
+}

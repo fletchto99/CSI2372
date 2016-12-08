@@ -78,6 +78,7 @@ void Table::play() {
 
         for (auto const &player : d_players) {
 
+            //Display the table
             print(*out);
 
             if (player->getMaxNumChains() < 3) {
@@ -120,17 +121,23 @@ void Table::play() {
                 std::cin >> choice;
             }
 
+            //Allow the user to discard one card from their hand if they choose to
             if (choice == "Y") {
                 int arbitraryCard = -1;
                 player->getHand()->print(*out);
-                *out << "Which card would you like to remove 1-5?";
+                *out << "Which card would you like to remove?";
                 std::cin >> arbitraryCard;
                 if (arbitraryCard > -1) {
-                    d_discardPile->operator+=(player->getHand()->operator[](1));
+                    d_discardPile->operator+=(player->getHand()->operator[](arbitraryCard));
                 }
             }
+
+            //Draw 3 cards from the deck into the trade area
+            d_tradeArea->operator+=(d_deck->draw());
+            d_tradeArea->operator+=(d_deck->draw());
             d_tradeArea->operator+=(d_deck->draw());
 
+            //check if the top of the discard pile matches any cards in the trade area
             while (d_tradeArea->legal(d_discardPile->top())) {
                 d_tradeArea->operator+=(d_discardPile->pickUp());
             }
@@ -144,12 +151,16 @@ void Table::play() {
                         break;
                     }
                 }
+
+                //if we found a matching chain for the current card check if the user wishes to chain the card
                 if (found != nullptr) {
                     choice = "";
                     while (choice != "Y" || choice != "N") {
                         *out << "Would you like chain this " + card->getName() + " card? [Y/N]";
                         std::cin >> choice;
                     }
+
+                    //They wish to chain the card, check if they now want to sell it
                     if (choice == "Y") {
                         found->operator+=(&card);
                         choice = "";
@@ -158,17 +169,13 @@ void Table::play() {
                             *out << "Would you like sell this chain? [Y/N]";
                             std::cin >> choice;
                         }
+
+                        //They want to sell the chain, so sell it and give them the coins
                         if (choice == "Y") {
-                            player->operator+=(found->sell());
+                            player->sellChain(found);
                         }
-                    } else {
-                        *out << "Discarding card";
                     }
-                } else {
-                    *out << "Unable to chain card... Discarding";
                 }
-
-
             }
 
             //Draw 2 cards from the deck to the hand

@@ -61,6 +61,9 @@ Chain<T> &Chain<T>::operator+=(T *type) {
 template<typename T>
 int Chain<T>::sell() {
     int numOfCoins = 0;
+    if(typeid(peek()) == typeid(Card)) {
+        numOfCoins = ((Card*)peek())->getCoinsForCards(length());
+    }
 
     return numOfCoins;
 }

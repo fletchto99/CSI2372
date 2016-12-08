@@ -92,6 +92,13 @@ public:
      */
     void printHand(std::ostream &out, bool top);
 
+    /**
+     * Sells a player's chain and opens up a slot for other chains
+     *
+     * @param chain The chain to sell
+     */
+    void sellChain(Chain<Card*>* chain);
+
 };
 
 #endif
