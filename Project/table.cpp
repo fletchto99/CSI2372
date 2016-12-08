@@ -131,10 +131,10 @@ void Table::play() {
             for (auto &card : d_tradeArea->getCards()) {
                 Chain<Card*> *found = nullptr;
                 for (int i = 0; i < player->getNumChains(); i++) {
-//                    if (typeid(card) == typeid(player->operator[](i)->getType())) {
-//                        found = player->operator[](i);
-//                        break;
-//                    }
+                    if (typeid(card) == typeid(player->operator[](i))) {
+                        found = player->operator[](i);
+                        break;
+                    }
                 }
                 if (found != nullptr) {
                     choice = "";
