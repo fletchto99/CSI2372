@@ -19,7 +19,7 @@ std::string Quartz::getName() {
 }
 
 void Quartz::print(std::ostream &out) {
-    out << " Q " << std::endl;
+    out << " Q ";
 }
 
 
@@ -41,7 +41,7 @@ std::string Hematite::getName() {
 }
 
 void Hematite::print(std::ostream &out) {
-    out << " H " << std::endl;
+    out << " H ";
 }
 
 int Obsidian::getCoinsForCards(int cards) {
@@ -62,7 +62,7 @@ std::string Obsidian::getName() {
 }
 
 void Obsidian::print(std::ostream &out) {
-    out << " O " << std::endl;
+    out << " O ";
 }
 
 int Malachite::getCoinsForCards(int cards) {
@@ -83,7 +83,7 @@ std::string Malachite::getName() {
 }
 
 void Malachite::print(std::ostream &out) {
-    out << " M " << std::endl;
+    out << " M ";
 }
 
 int Turquoise::getCoinsForCards(int cards) {
@@ -104,7 +104,7 @@ std::string Turquoise::getName() {
 }
 
 void Turquoise::print(std::ostream &out) {
-    out << " T " << std::endl;
+    out << " T " ;
 }
 
 int Ruby::getCoinsForCards(int cards) {
@@ -125,7 +125,7 @@ std::string Ruby::getName() {
 }
 
 void Ruby::print(std::ostream &out) {
-    out << " R " << std::endl;
+    out << " R ";
 }
 
 int Amethyst::getCoinsForCards(int cards) {
@@ -146,7 +146,7 @@ std::string Amethyst::getName() {
 }
 
 void Amethyst::print(std::ostream &out) {
-    out << " A " << std::endl;
+    out << " A " ;
 }
 
 int Emerald::getCoinsForCards(int cards) {
@@ -163,5 +163,5 @@ std::string Emerald::getName() {
 }
 
 void Emerald::print(std::ostream &out) {
-    out << " E " << std::endl;
+    out << " E " ;
 }

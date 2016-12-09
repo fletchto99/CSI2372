@@ -65,7 +65,7 @@ void Player::printHand(std::ostream &out, bool hand) {
         d_hand->print(out);
     } else {
         out << "Player's top card: ";
-        out << d_hand->top() << std::endl;
+        (d_hand->top())->print(out);
     }
 }
 

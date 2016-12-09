@@ -38,8 +38,9 @@ Hand::Hand(std::istream &input, CardFactory *) {
 
 void Hand::print(std::ostream &out) {
     out << "Hand: [ ";
-    for (auto cards: d_hand) {
-        std::cout << cards << " ," << std::endl;
+    for (auto& cards: d_hand) {
+        cards->print(out);
+        std::cout << ", ";
     }
     out << "]" << std::endl;
 }
