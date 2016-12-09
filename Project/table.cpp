@@ -115,7 +115,7 @@ void Table::play() {
             //Play topmost card from Hand into chain
             Card *toPlay = player->getHand()->play();
 
-            *out << "Your topmost card is " << toPlay->getName();
+            *out << "Your topmost card is " << toPlay->getName() << std::endl;
 
             Chain<Card*> *toChain = nullptr;
             for (int i = 0; i < player->getNumChains(); i++) {
@@ -150,7 +150,7 @@ void Table::play() {
                     player->addChain(chain);
                 }
             }
-            
+
             *out << "Do you want to play a next card? [Y/N]";
             choice = "";
             std::cin >> choice;
