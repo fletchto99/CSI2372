@@ -1,7 +1,7 @@
 #include "hand.h"
 
 Hand &Hand::operator+=(Card *card) {
-    d_hand.back() = card;
+    d_hand.push_back(card);
     return *this;
 }
 

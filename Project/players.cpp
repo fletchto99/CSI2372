@@ -12,7 +12,8 @@ public:
 };
 
 Player::Player(std::istream &is, std::string &_name) {
-    //d_hand = new Hand(is, CardFactory::CardFactory _factory);
+    d_hand = new Hand(is, CardFactory::getFactory(is));
+    d_name = _name;
 }
 
 std::string Player::getName() {

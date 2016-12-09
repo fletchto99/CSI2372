@@ -15,8 +15,8 @@ class Player {
 private:
     //Variables to store the player's information
     std::string d_name;
-    int d_coins;
-    int d_numChains;
+    int d_coins = 0;
+    int d_numChains = 0;
     std::vector<Chain<Card*>*> d_chains;
     Hand *d_hand;
 public:

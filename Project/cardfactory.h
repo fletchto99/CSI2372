@@ -31,11 +31,11 @@ public:
      *
      * @return The cardfactory instance
      */
-    static CardFactory *getFactory() {
-        std::ifstream ignore;
-        static CardFactory *instance = new CardFactory(ignore);
-        return instance;
-    }
+//    static CardFactory *getFactory() {
+//        std::ifstream ignore;
+//        static CardFactory *instance = new CardFactory(ignore);
+//        return instance;
+//    }
 
     /**
      * Retrieves the instance of the card factory

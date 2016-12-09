@@ -10,24 +10,16 @@ std::string &getName(int player) {
 }
 
 Table::Table(std::istream &file) {
-    std::cout << "1";
     d_deck = CardFactory::getFactory(file)->getDeck();
-    std::cout << "2";
-    d_discardPile = new DiscardPile(file, CardFactory::getFactory());
-    std::cout << "3";
-    d_tradeArea = new TradeArea(file, CardFactory::getFactory());
-    std::cout << "4";
+    d_discardPile = new DiscardPile(file, CardFactory::getFactory(file));
+    d_tradeArea = new TradeArea(file, CardFactory::getFactory(file));
     d_players.push_back(new Player(file, getName(1)));
-    std::cout << "5";
     d_players.push_back(new Player(file, getName(2)));
-
-    std::cout << "6";
     for (auto const &player: d_players) {
         for (int i = 0; i < 5; i++) {
             *player->getHand() += d_deck->draw();
         }
     }
-    std::cout << "test";
 }
 
 bool Table::win(std::string &winner) {
@@ -53,16 +45,17 @@ void Table::play() {
 
     while (!d_deck->empty()) {
 
-        std::string choice = "";
-        while (choice != "Y" || choice != "N") {
-            std::cout << "Would you like to pause the game? [Y/N]";
-            std::cin >> choice;
-        }
-
         std::ostream *out;
 
+        *out << "Would you like to save the game to a file? [Y/N]";
+
+        std::string choice = "";
+        std::cin >> choice;
+
+
+
         if (choice == "Y") {
-            std::cout << "Where would you like to save the game to? Press enter to start a new game.";
+            *out << "Where would you like to save the game to? Press enter to start a new game.";
             std::string file = "";
             std::cin >> file;
             std::ofstream fileout;
@@ -82,11 +75,9 @@ void Table::play() {
             print(*out);
 
             if (player->getMaxNumChains() < 3) {
+                *out << "Would you like to buy a third chain? [Y/N]";
                 choice = "";
-                while (choice != "Y" || choice != "N") {
-                    std::cout << "Would you like to pause the game? [Y/N]";
-                    std::cin >> choice;
-                }
+                std::cin >> choice;
                 if (choice == "Y") {
                     player->buyThirdChain();
                 }
@@ -115,11 +106,9 @@ void Table::play() {
 //            If player decides to Play the now topmost card from Hand.
 //            If chain is ended, cards for chain are removed and player receives coin(s).
 
+            *out << "Would you like to look at your hand and discard a card? [Y/N]";
             choice = "";
-            while (choice != "Y" || choice != "N") {
-                *out << "Would you like to look at your hand and discard a card? [Y/N]";
-                std::cin >> choice;
-            }
+            std::cin >> choice;
 
             //Allow the user to discard one card from their hand if they choose to
             if (choice == "Y") {
@@ -154,21 +143,17 @@ void Table::play() {
 
                 //if we found a matching chain for the current card check if the user wishes to chain the card
                 if (found != nullptr) {
+                    *out << "Would you like chain this " + card->getName() + " card? [Y/N]";
                     choice = "";
-                    while (choice != "Y" || choice != "N") {
-                        *out << "Would you like chain this " + card->getName() + " card? [Y/N]";
-                        std::cin >> choice;
-                    }
+                    std::cin >> choice;
 
                     //They wish to chain the card, check if they now want to sell it
                     if (choice == "Y") {
                         found->operator+=(&card);
+                        *out << "You have " << found->length() << " cards in this chain of " << ((Card*)found->peek())->getName() << std::endl;
+                        *out << "Would you like sell this chain? [Y/N]";
                         choice = "";
-                        while (choice != "Y" || choice != "N") {
-                            *out << "You have " << found->length() << " cards in this chain of " << ((Card*)found->peek())->getName() << std::endl;
-                            *out << "Would you like sell this chain? [Y/N]";
-                            std::cin >> choice;
-                        }
+                        std::cin >> choice;
 
                         //They want to sell the chain, so sell it and give them the coins
                         if (choice == "Y") {
