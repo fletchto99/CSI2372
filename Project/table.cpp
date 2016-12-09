@@ -102,7 +102,9 @@ void Table::play() {
                         *out << "Chaining card " << card->getName() << std::endl;
                         found->operator+=(&card);
                     }  else if (player->getNumChains() < player->getMaxNumChains()) {
-                        //TODO: Create new chain if there is space and found is null
+                        Chain<Card*> *chain = new Chain<Card*>();
+                        chain->operator+=(&card);
+                        player->addChain(chain);
                     } else {
                         *out << "Discarding card " << card->getName() << std::endl;
                     }
@@ -148,9 +150,7 @@ void Table::play() {
                     player->addChain(chain);
                 }
             }
-
-
-            //TODO: Ask if they want to play the next card in their hand & sell a chain (same as above only optional this time)
+            
             *out << "Do you want to play a next card? [Y/N]";
             choice = "";
             std::cin >> choice;
