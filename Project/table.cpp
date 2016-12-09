@@ -46,13 +46,12 @@ void Table::play() {
     while (!d_deck->empty()) {
 
         std::ostream *out;
+        out = &std::cout;
 
         *out << "Would you like to save the game to a file? [Y/N]";
 
         std::string choice = "";
         std::cin >> choice;
-
-
 
         if (choice == "Y") {
             *out << "Where would you like to save the game to? Press enter to start a new game.";
@@ -65,8 +64,6 @@ void Table::play() {
             //TODO: for each player: save their hand, save their chains, save their tradearea
             fileout.close();
             return;
-        } else {
-            out = &std::cout;
         }
 
         for (auto const &player : d_players) {
@@ -74,7 +71,8 @@ void Table::play() {
             //Display the table
             print(*out);
 
-            if (player->getMaxNumChains() < 3) {
+            //Buy a 3rd chain if you have 3 coins
+            if (player->getMaxNumChains() < 3 && player->getNumCoins() >= 3) {
                 *out << "Would you like to buy a third chain? [Y/N]";
                 choice = "";
                 std::cin >> choice;
@@ -82,35 +80,48 @@ void Table::play() {
                     player->buyThirdChain();
                 }
             }
+
+            //Draw card from deck
             player->getHand()->operator+=(d_deck->draw());
 
+
+            //Play remaining cards in trade area
             if (d_tradeArea->numCards() > 0) {
-                //TODO: Add gemstone cards from the TradeArea to chains or discard them
-//                player->getChains();
-                //FOR each chain check if the type of that chain is the same as the card in the trade area
+                //For each card in the trade area check if it is chainable to the player
+                for (auto &card : d_tradeArea->getCards()) {
+                    Chain<Card*> *found = nullptr;
+                    for (int i = 0; i < player->getNumChains(); i++) {
+                        if (typeid(card) == typeid(player->operator[](i))) {
+                            found = player->operator[](i);
+                            break;
+                        }
+                    }
+
+                    //if we found a matching chain for the current card check if the user wishes to chain the card
+                    if (found != nullptr) {
+                        *out << "Chaining card " << card->getName() << std::endl;
+                        found->operator+=(&card);
+                    }  else if (player->getNumChains() < player->getMaxNumChains()) {
+                        //TODO: Create new chain if there is space and found is null
+                    } else {
+                        *out << "Discarding card " << card->getName() << std::endl;
+                    }
+                }
 
             }
 
-//            Play topmost card from Hand.
-
-            if (player->getHand()) {
-
+            //TODO: Play topmost card from Hand into chain
+            if (player->getHand()->play()) {
+                //TODO: Ask if they want to sell a chain (or force if all full), if so sell it an receive the coins
             }
-//            If chain is ended, cards for chain are removed and player receives coin(s).
+
+            //TODO: Ask if they want to play the next card in their hand & sell a chain (same as above only optional this time)
 
 
-            //TODO: Print out current chains
-            //TODO: Print out the top card in the players hand
-
-
-//            If player decides to Play the now topmost card from Hand.
-//            If chain is ended, cards for chain are removed and player receives coin(s).
-
+            //Allow the user to discard one card from their hand if they choose to
             *out << "Would you like to look at your hand and discard a card? [Y/N]";
             choice = "";
             std::cin >> choice;
-
-            //Allow the user to discard one card from their hand if they choose to
             if (choice == "Y") {
                 int arbitraryCard = -1;
                 player->getHand()->print(*out);
@@ -160,6 +171,8 @@ void Table::play() {
                             player->sellChain(found);
                         }
                     }
+                } else if (player->getNumChains() < player->getMaxNumChains()) {
+                    //TODO: Create new chain if there is space and found is null
                 }
             }
 
