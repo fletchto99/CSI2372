@@ -27,18 +27,6 @@ public:
 
     /**
      * Retrieves the instance of the card factory
-     * or creates one if null
-     *
-     * @return The cardfactory instance
-     */
-//    static CardFactory *getFactory() {
-//        std::ifstream ignore;
-//        static CardFactory *instance = new CardFactory(ignore);
-//        return instance;
-//    }
-
-    /**
-     * Retrieves the instance of the card factory
      * or creates one from the input stream if null
      *
      * @return The cardfactory instance

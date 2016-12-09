@@ -12,7 +12,7 @@ Card *DiscardPile::pickUp() {
 }
 
 Card *DiscardPile::top() {
-    return d_cards.at(0);
+    return d_cards.front();
 }
 
 void DiscardPile::print(std::ostream &out) {

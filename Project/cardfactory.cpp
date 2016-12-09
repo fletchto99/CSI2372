@@ -13,6 +13,7 @@ CardFactory::CardFactory(std::istream &input) {
         d_deck = new Deck(input, this);
     }
     if (d_deck->empty()) {
+        //Populate the deck with the specified cards
         for (size_t i = 0; i < 104; i++) {
             if (i < 20) {
                 d_deck->push_back(new Quartz());
