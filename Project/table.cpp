@@ -112,10 +112,109 @@ void Table::play() {
 
             //TODO: Play topmost card from Hand into chain
             if (player->getHand()->play()) {
+                *out << "Do you want to sell a chain? [Y/N] " << std::endl;
+                choice = "";
+                std::cin >> choice;
                 //TODO: Ask if they want to sell a chain (or force if all full), if so sell it an receive the coins
+                if(choice == "Y") {
+                    *out << "Which chain? 1, 2, or 3?" << std::endl;
+                    int choice;
+                    if (player->operator[](1) != nullptr) {
+                        *out << "Chain 1: " << player->operator[](1)->peek() << " size: "
+                             << player->operator[](1)->length()
+                             << std::endl;
+                    } else if (player->operator[](2) != nullptr) {
+                        *out << "Chain 2: " << player->operator[](2)->peek() << " size: "
+                             << player->operator[](2)->length()
+                             << std::endl;
+                    } else if (player->operator[](2) != nullptr) {
+                        *out << "Chain 3: " << player->operator[](3)->peek() << " size: "
+                             << player->operator[](3)->length() << std::endl;
+                    }
+                    switch (choice) {
+                        case 1 :
+                            choice = 1;
+                            player->sellChain(player->operator[](1));
+                            player->operator[](1)->sell();
+                            break;
+                        case 2 :
+                            choice = 2;
+                            player->sellChain(player->operator[](2));
+                            player->operator[](2)->sell();
+                            break;
+                        case 3:
+                            choice = 3;
+                            player->sellChain(player->operator[](3));
+                            player->operator[](3)->sell();
+                            break;
+                        default:
+                            std::cout << "You have no chains" << std::endl;
+                    }
+                } else {
+                    int choice;
+                    if(player->operator[](1) != nullptr && player->operator[](2) != nullptr && player->operator[](3) !=
+                                                                                               nullptr){
+                        *out << "You have to sell a chain " << std::endl;
+                        *out << "Which chain? 1, 2, or 3?" << std::endl;
+
+                        if (player->operator[](1) != nullptr) {
+                            *out << "Chain 1: " << player->operator[](1)->peek() << " size: "
+                                 << player->operator[](1)->length()
+                                 << std::endl;
+                        } else if (player->operator[](2) != nullptr) {
+                            *out << "Chain 2: " << player->operator[](2)->peek() << " size: "
+                                 << player->operator[](2)->length()
+                                 << std::endl;
+                        } else if (player->operator[](3) != nullptr) {
+                            *out << "Chain 3: " << player->operator[](3)->peek() << " size: "
+                                 << player->operator[](3)->length() << std::endl;
+                        }
+                        switch (choice) {
+                            case 1 :
+                                choice = 1;
+                                player->sellChain(player->operator[](1));
+                                player->operator[](1)->sell();
+                                break;
+                            case 2 :
+                                choice = 2;
+                                player->sellChain(player->operator[](2));
+                                player->operator[](2)->sell();
+                                break;
+                            case 3:
+                                choice = 3;
+                                player->sellChain(player->operator[](3));
+                                player->operator[](3)->sell();
+                                break;
+                            default:
+                                std::cout << "You have no chains" << std::endl;
+                        }
+                    } else {
+                        switch (choice) {
+                            Card* card;
+                            case 1 : player->operator[](1) != nullptr;
+                                card = player->getHand()->top();
+                                player->operator[](1)->operator+=(&card);
+                            case 2 : player->operator[](2) != nullptr;
+                                card = player->getHand()->top();
+                                player->operator[](2)->operator+=(&card);
+                            case 3 : player->operator[](3) != nullptr;
+                                card = player->getHand()->top();
+                                player->operator[](3)->operator+=(&card);
+                        }
+                    }
+                }
+
             }
 
             //TODO: Ask if they want to play the next card in their hand & sell a chain (same as above only optional this time)
+            *out << "Do you want to play a next card? [Y/N]";
+            choice = "";
+            std::cin >> choice;
+            if (choice == "Y") {
+                *out << "Do you want to sell a chain? [Y/N]";
+                choice = "";
+                std::cin >> choice;
+            }
 
 
             //Allow the user to discard one card from their hand if they choose to
