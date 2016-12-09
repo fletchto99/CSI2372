@@ -45,13 +45,12 @@ Chain<Card*> *Player::operator[](int i) {
 }
 
 void Player::buyThirdChain() {
-    if (d_numChains != 3) {
-        if (d_coins < 2) {
+    if (d_numChains < 3) {
+        if (d_coins < 3) {
             throw NotEnoughCoins("You do not have enough coins");
         } else {
-            d_coins = d_coins - 2;
+            d_coins = d_coins - 3;
             d_numChains++;
-            // Chain chain (nullptr, nullptr);
         }
     } else {
         std::cout << "You already have 3 chains, and you are only allow to have a maximum of 3 chains." << std::endl;
@@ -76,4 +75,12 @@ Hand *Player::getHand() {
 void Player::sellChain(Chain<Card*> *chain) {
     this->operator+=(chain->sell());
     d_chains.erase(std::remove(d_chains.begin(), d_chains.end(), chain), d_chains.end());
+}
+
+void Player::addChain(Chain<Card*> *chain) {
+    if (getNumChains() < d_numChains) {
+        d_chains.push_back(chain);
+    } else {
+        std::cout << "You already reached your limit for chains!";
+    }
 }

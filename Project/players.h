@@ -99,6 +99,12 @@ public:
      */
     void sellChain(Chain<Card*>* chain);
 
+    /**
+     * Adds a chain to the chains
+     *
+     * @param chain
+     */
+    void addChain(Chain<Card *> *chain);
 };
 
 #endif

@@ -50,7 +50,7 @@ public:
 
 template<typename T>
 Chain<T> &Chain<T>::operator+=(T *type) {
-    if (d_cards.front() != type) {
+    if (typeid(d_cards.front()) != typeid(&type)) {
         throw new IllegalType("Not the same type");
     } else {
         d_cards.push_back(type);
